@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar" ref={menuRef}>
-      <div className="logo">Mr. <span className="logoName">Pathum</span></div>
+      <div className="logo">Mr. <span className="logoName">Main</span></div>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
       </div>
@@ -33,7 +33,7 @@ const Navbar = () => {
           <li><a href="#home" onClick={toggleMenu}>Home</a></li>
           <li><a href="#education" onClick={toggleMenu}>Education</a></li>
           <li><a href="#services" onClick={toggleMenu}>Services</a></li>
-          <li><a href="#websites" onClick={toggleMenu}>Websites</a></li>
+          <li><a href="#websites" onClick={toggleMenu}>Projects</a></li>
           <li><a href="#skills" onClick={toggleMenu}>Skills</a></li>
           <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
         </ul>

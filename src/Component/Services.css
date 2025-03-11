@@ -1,0 +1,70 @@
+.services-container {
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 7% 8% 0 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  .services-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .service-card {
+    background-color: #00ffff;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    color: black;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    background-color: #f1f1f1;
+  }
+  
+  .service-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  
+  .service-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: transparent;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .services-container {
+      padding: 3rem 1rem;
+    }
+  
+    .services-title {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+  
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  

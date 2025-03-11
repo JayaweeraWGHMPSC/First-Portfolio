@@ -1,5 +1,5 @@
 import "./About.css"
-import { FaGithub, FaLinkedin, FaTwitter, FaDiscord, FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { SiFiverr } from "react-icons/si";
 import { useState, useEffect, useRef } from "react"
 
@@ -90,19 +90,13 @@ function About() {
           <a href="https://www.fiverr.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
             <SiFiverr size={24} />
           </a>
-          <a href="https://discord.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
-            <FaDiscord size={24} />
-          </a>
-          <a href="https://wa.me/your-number" className="social-icon" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp size={24} />
-          </a>
         </div>
         <div className="al_contact_way">
           <div className="al_hire_me">
             <button style={hireMeStyle}>Hire Me</button>
           </div>
           <div className="al_contact">
-            <button 
+            <button
               onMouseEnter={() => setIsContactHovered(true)}
               onMouseLeave={() => setIsContactHovered(false)}
             >

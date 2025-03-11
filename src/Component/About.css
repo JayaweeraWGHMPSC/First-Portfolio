@@ -200,7 +200,10 @@
 
   .profile-image:hover {
     border: 8px solid #00e5ff;
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.8);
+    box-shadow: 0 0 40px rgba(0, 229, 255, 0.8);
+    width: 355px;
+    height: 355px;
+
   }
 
   /* Responsive styles */
