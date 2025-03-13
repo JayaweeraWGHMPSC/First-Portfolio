@@ -75,6 +75,7 @@ function About() {
             teamwork, a commitment to learning new technologies, and
             possess effective leadership skills aimed at continuous personal
             and professional growth.
+            
           </p>
         </div>
         <div className="al_social">

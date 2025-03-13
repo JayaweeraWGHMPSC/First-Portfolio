@@ -1,10 +1,9 @@
-/*
-import type React from "react"
-
 import "./Contact.css"
-import { useState, type FormEvent } from "react"
+import { useState, useRef, useEffect } from "react"
+import emailjs from "@emailjs/browser"
 
 function Contact() {
+  const form = useRef()
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -12,19 +11,61 @@ function Contact() {
     subject: "",
     message: "",
   })
+  const [status, setStatus] = useState({
+    message: "",
+    isError: false,
+  })
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    // Add your form submission logic here
-    console.log("Form submitted:", formData)
-  }
+  useEffect(() => {
+    if (status.message) {
+      const timer = setTimeout(() => {
+        setStatus({ message: "", isError: false }) // Clear status after 5 seconds
+      }, 5000)
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      return () => clearTimeout(timer) // Cleanup timeout
+    }
+  }, [status.message])
+
+  const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }))
+  }
+
+  const sendEmail = async (e) => {
+    e.preventDefault()
+
+    try {
+      // Replace these with your actual EmailJS service details
+      const result = await emailjs.sendForm("service_wf5jpmj", "template_adah41g", form.current, "aXIH89B0VxmHZEaO8")
+
+      if (result.text === "OK") {
+        setStatus({
+          message: "Message sent successfully!",
+          isError: false,
+        })
+        // Clear form
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        })
+      }
+    } catch (error) {
+      setStatus({
+        message: "Failed to send message. Please try again.",
+        isError: true,
+      })
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await sendEmail(e)
   }
 
   return (
@@ -33,7 +74,7 @@ function Contact() {
         Contact <span className="highlight">Me</span>
       </h1>
 
-      <form className="contact-form" onSubmit={handleSubmit}>
+      <form ref={form} className="contact-form" onSubmit={handleSubmit}>
         <div className="form-grid">
           <div className="form-left">
             <div className="form-group">
@@ -94,6 +135,12 @@ function Contact() {
           </div>
         </div>
 
+        {status.message && (
+          <div className={`status-message ${status.isError ? "error" : "success"}`}>
+            {status.message}
+          </div>
+        )}
+
         <button type="submit" className="submit-button">
           Send Message
         </button>
@@ -103,5 +150,3 @@ function Contact() {
 }
 
 export default Contact
-
-*/
