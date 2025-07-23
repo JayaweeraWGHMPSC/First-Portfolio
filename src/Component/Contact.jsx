@@ -59,6 +59,7 @@ function Contact() {
       setStatus({
         message: "Failed to send message. Please try again.",
         isError: true,
+        error: error.text || "Unknown error",
       })
     }
   }

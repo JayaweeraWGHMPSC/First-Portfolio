@@ -1,8 +1,38 @@
+import { useEffect, useRef } from "react";
 import "./Education.css";
 
 function Education() {
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                    }
+                });
+            },
+            {
+                threshold: 0.2,
+                rootMargin: "0px 0px -100px 0px"
+            }
+        );
+
+        const container = containerRef.current;
+        if (container) {
+            observer.observe(container);
+        }
+
+        return () => {
+            if (container) {
+                observer.unobserve(container);
+            }
+        };
+    }, []);
+
     return (
-        <div className="education-container">
+        <div className="education-container" ref={containerRef}>
             <h1 className="education-title">Education</h1>
 
             <div className="timeline-container">
