@@ -9,38 +9,10 @@ function About() {
   const [loopNum, setLoopNum] = useState(0)
   const [typingSpeed, setTypingSpeed] = useState(150)
   const [isContactHovered, setIsContactHovered] = useState(false)
-  const [isVisible, setIsVisible] = useState(false)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const jobs = ["Full Stack Developer", "UI/UX Designer", "Freelancer"]
   const typingRef = useRef(null)
-  const sectionRef = useRef(null)
-
-  // Intersection Observer for triggering animations
-  useEffect(() => {
-    const currentSection = sectionRef.current
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      {
-        threshold: 0.3, // Trigger when 30% of the component is visible
-        rootMargin: "0px 0px -100px 0px"
-      }
-    )
-
-    if (currentSection) {
-      observer.observe(currentSection)
-    }
-
-    return () => {
-      if (currentSection) {
-        observer.unobserve(currentSection)
-      }
-    }
-  }, [])
 
   useEffect(() => {
     let timer
@@ -82,25 +54,25 @@ function About() {
   } : {};
 
   return (
-    <div className="container" ref={sectionRef}>
+    <div className="container">
       <div className="about_left">
-        <div className={`al_name ${isVisible ? 'slide-in-left' : ''}`}>
-          <h2 className="al_name_base">Hi, I&apos;m <span style={{color: '#00f7ff'}}>Pathum</span></h2>
+        <div className="al_name slide-in-left">
+          <h2 className="al_name_base">Hi, I&apos;m <span className="name-highlight">Pathum</span></h2>
         </div>
-        <div className={`al_job_role ${isVisible ? 'slide-in-left' : ''}`}>
-
+        <div className="al_job_role slide-in-left">
+          <h3 className="al_job_base">I&apos;m a</h3>
           <h3 className="al_job_details">
             <span className="typing-effect" ref={typingRef}>
               {displayedJob}
             </span>
           </h3>
         </div>
-        <div className={`al_description ${isVisible ? 'slide-in-left' : ''}`}>
+        <div className="al_description slide-in-left">
           <p>
             I craft interfaces with the spirit of poetry and logic. Bring designs into forms you can feel on screen.
           </p>
         </div>
-        <div className={`al_social ${isVisible ? 'slide-in-left' : ''}`}>
+        <div className="al_social slide-in-left">
           <a href="https://www.linkedin.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={24} />
           </a>
@@ -114,7 +86,7 @@ function About() {
             <SiFiverr size={24} />
           </a>
         </div>
-        <div className={`al_contact_way ${isVisible ? 'slide-in-left' : ''}`}>
+        <div className="al_contact_way slide-in-left">
           <div className="al_hire_me">
             <button style={hireMeStyle}>Downloard CV</button>
           </div>
@@ -130,7 +102,7 @@ function About() {
       </div>
 
       <div className="about_right">
-        <div className={`profile-image ${isVisible ? 'slide-in-right' : ''}`}>
+        <div className="profile-image slide-in-right">
         </div>
       </div>
     </div>
