@@ -9,14 +9,47 @@
     font-family: system-ui, -apple-system, sans-serif;
   }
   
-  .skills-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-    text-align: center;
-  }
-  
-  .skills-grid {
+.skills-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Skills Navigation */
+.skills-nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-nav-btn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.skills-nav-btn:hover {
+  border-color: #00ffff;
+  color: #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.skills-nav-btn.active {
+  border-color: #00ffff;
+  background-color: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}  .skills-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
@@ -72,7 +105,17 @@
   
     .skills-title {
       font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-nav {
+      gap: 0.5rem;
       margin-bottom: 2rem;
+    }
+
+    .skills-nav-btn {
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
     }
   
     .skills-grid {
@@ -86,6 +129,15 @@
   }
   
   @media (max-width: 480px) {
+    .skills-nav {
+      gap: 0.3rem;
+    }
+
+    .skills-nav-btn {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.8rem;
+    }
+
     .skills-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;

@@ -45,7 +45,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isInitialLoad ? 'initial-load' : 'no-animation'}`} ref={menuRef}>
+    <nav className={`navbar${isScrolled ? ' scrolled' : ''}${isInitialLoad ? ' initial-load' : isScrolled ? ' vertical-animate' : ' horizontal-animate'}`} ref={menuRef}>
       <div className="logo">Mr. <span className="logoName">Main</span></div>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
@@ -54,32 +54,32 @@ const Navbar = () => {
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li>
             <a href="#home" onClick={toggleMenu} data-tooltip="Home">
-              {isScrolled ? '⌂' : 'Home'}
+              {(isScrolled && window.innerWidth > 768) ? '⌂' : 'Home'}
             </a>
           </li>
           <li>
             <a href="#education" onClick={toggleMenu} data-tooltip="Education">
-              {isScrolled ? '◉' : 'Education'}
+              {(isScrolled && window.innerWidth > 768) ? '◉' : 'Education'}
             </a>
           </li>
           <li>
             <a href="#services" onClick={toggleMenu} data-tooltip="Services">
-              {isScrolled ? '⚙' : 'Services'}
+              {(isScrolled && window.innerWidth > 768) ? '⚙' : 'Services'}
             </a>
           </li>
           <li>
             <a href="#websites" onClick={toggleMenu} data-tooltip="Projects">
-              {isScrolled ? '◈' : 'Projects'}
+              {(isScrolled && window.innerWidth > 768) ? '◈' : 'Projects'}
             </a>
           </li>
           <li>
             <a href="#skills" onClick={toggleMenu} data-tooltip="Skills">
-              {isScrolled ? '◆' : 'Skills'}
+              {(isScrolled && window.innerWidth > 768) ? '◆' : 'Skills'}
             </a>
           </li>
           <li>
             <a href="#contact" onClick={toggleMenu} data-tooltip="Contact">
-              {isScrolled ? '✉' : 'Contact'}
+              {(isScrolled && window.innerWidth > 768) ? '✉' : 'Contact'}
             </a>
           </li>
         </ul>
