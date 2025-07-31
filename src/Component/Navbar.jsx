@@ -46,7 +46,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar${isScrolled ? ' scrolled' : ''}${isInitialLoad ? ' initial-load' : isScrolled ? ' vertical-animate' : ' horizontal-animate'}`} ref={menuRef}>
-      <div className="logo">Mr. <span className="logoName">Main</span></div>
+      <div className="logo">Port<span className="logoName">folio</span></div>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
       </div>
@@ -54,32 +54,32 @@ const Navbar = () => {
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li>
             <a href="#home" onClick={toggleMenu} data-tooltip="Home">
-              {(isScrolled && window.innerWidth > 768) ? '⌂' : 'Home'}
+              {(isScrolled && window.innerWidth >= 1025) ? '⌂' : 'Home'}
             </a>
           </li>
           <li>
             <a href="#education" onClick={toggleMenu} data-tooltip="Education">
-              {(isScrolled && window.innerWidth > 768) ? '◉' : 'Education'}
+              {(isScrolled && window.innerWidth >= 1025) ? '◉' : 'Education'}
             </a>
           </li>
           <li>
             <a href="#services" onClick={toggleMenu} data-tooltip="Services">
-              {(isScrolled && window.innerWidth > 768) ? '⚙' : 'Services'}
+              {(isScrolled && window.innerWidth >= 1025) ? '⚙' : 'Services'}
             </a>
           </li>
           <li>
             <a href="#websites" onClick={toggleMenu} data-tooltip="Projects">
-              {(isScrolled && window.innerWidth > 768) ? '◈' : 'Projects'}
+              {(isScrolled && window.innerWidth >= 1025) ? '◈' : 'Projects'}
             </a>
           </li>
           <li>
             <a href="#skills" onClick={toggleMenu} data-tooltip="Skills">
-              {(isScrolled && window.innerWidth > 768) ? '◆' : 'Skills'}
+              {(isScrolled && window.innerWidth >= 1025) ? '◆' : 'Skills'}
             </a>
           </li>
           <li>
             <a href="#contact" onClick={toggleMenu} data-tooltip="Contact">
-              {(isScrolled && window.innerWidth > 768) ? '✉' : 'Contact'}
+              {(isScrolled && window.innerWidth >= 1025) ? '✉' : 'Contact'}
             </a>
           </li>
         </ul>

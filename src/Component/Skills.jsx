@@ -10,7 +10,7 @@ function Skills() {
     Database: ['MySQL', 'MongoDB', 'MSSQL','Firebase'],
     Programming: ['C', 'C++', 'Python', 'JavaScript'],
     Tools: ['Git', 'Figma', 'Blender','Jupyter', 'Photoshop','ChatGPT','Canva','Gimp'],
-    'Soft Skills': ['Communication', 'Teamwork', 'Problem Solving']
+    'Soft Skills': ['Communication', 'Teamwork', 'Problem Solving', 'Self Learning']
   };
 
   const categories = Object.keys(skillsData);

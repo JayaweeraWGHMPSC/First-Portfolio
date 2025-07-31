@@ -68,7 +68,7 @@ function About() {
         </div>
         <div className="al_description slide-in-left">
           <p>
-            Third-year IT undergraduate at the University of Moratuwa, passionate about full-stack development, UI/UX design, and cybersecurity. I love creating secure, user-friendly web experiences and constantly exploring new challenges to grow as a developer.
+            Third-year IT undergraduate at the University of Moratuwa, passionate about Full-Stack development, UI/UX design, and CyberSecurity. I love creating secure, user-friendly web experiences and constantly exploring new challenges to grow as a developer.
           </p>
         </div>
         <div className="al_social slide-in-left">
@@ -87,7 +87,7 @@ function About() {
         </div>
         <div className="al_contact_way slide-in-left">
           <div className="al_hire_me">
-            <a href="/cv.pdf" style={{ textDecoration: "none" }} download><button style={hireMeStyle}>Download CV</button></a>
+            <a href="/cv.pdf" style={{ textDecoration: "none" }} download><button style={hireMeStyle}>Download Resume</button></a>
           </div>
           <div className="al_contact">
             <button
