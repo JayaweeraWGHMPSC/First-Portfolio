@@ -15,16 +15,30 @@ function Contact() {
     message: "",
     isError: false,
   })
+  const [validationErrors, setValidationErrors] = useState({})
+  const [showPopup, setShowPopup] = useState(false)
+  const [popupMessage, setPopupMessage] = useState("")
 
   useEffect(() => {
     if (status.message) {
       const timer = setTimeout(() => {
-        setStatus({ message: "", isError: false }) // Clear status after 5 seconds
+        setStatus({ message: "", isError: false })
       }, 5000)
 
-      return () => clearTimeout(timer) // Cleanup timeout
+      return () => clearTimeout(timer)
     }
   }, [status.message])
+
+  useEffect(() => {
+    if (showPopup) {
+      const timer = setTimeout(() => {
+        setShowPopup(false)
+        setPopupMessage("")
+      }, 3000)
+
+      return () => clearTimeout(timer)
+    }
+  }, [showPopup])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -32,13 +46,50 @@ function Contact() {
       ...prev,
       [name]: value,
     }))
+
+    // Clear validation error when user starts typing
+    if (validationErrors[name]) {
+      setValidationErrors((prev) => ({
+        ...prev,
+        [name]: false,
+      }))
+    }
+  }
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const validateForm = () => {
+    const errors = {}
+    let isValid = true
+
+    // Check required fields (excluding phone)
+    const requiredFields = ['fullName', 'email', 'subject', 'message']
+    
+    requiredFields.forEach(field => {
+      if (!formData[field].trim()) {
+        errors[field] = true
+        isValid = false
+      }
+    })
+
+    // Check email format if email is provided
+    if (formData.email.trim() && !validateEmail(formData.email)) {
+      setPopupMessage("Please enter a valid email address")
+      setShowPopup(true)
+      return false
+    }
+
+    setValidationErrors(errors)
+    return isValid
   }
 
   const sendEmail = async (e) => {
     e.preventDefault()
 
     try {
-      // Replace these with your actual EmailJS service details
       const result = await emailjs.sendForm("service_wf5jpmj", "template_adah41g", form.current, "aXIH89B0VxmHZEaO8")
 
       if (result.text === "OK") {
@@ -54,6 +105,7 @@ function Contact() {
           subject: "",
           message: "",
         })
+        setValidationErrors({})
       }
     } catch (error) {
       setStatus({
@@ -66,7 +118,10 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await sendEmail(e)
+    
+    if (validateForm()) {
+      await sendEmail(e)
+    }
   }
 
   return (
@@ -74,6 +129,15 @@ function Contact() {
       <h1 className="contact-title">
         Contact <span className="highlight">Me</span>
       </h1>
+
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-message">
+            <p>{popupMessage}</p>
+          </div>
+        </div>
+      )}
 
       <form ref={form} className="contact-form" onSubmit={handleSubmit}>
         <div className="form-grid">
@@ -85,18 +149,24 @@ function Contact() {
                 placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleChange}
-                required
+                className={validationErrors.fullName ? 'error-border' : ''}
+                style={{
+                  borderColor: validationErrors.fullName ? '#ff4444' : ''
+                }}
               />
             </div>
 
             <div className="form-group">
               <input
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Enter Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                required
+                className={validationErrors.email ? 'error-border' : ''}
+                style={{
+                  borderColor: validationErrors.email ? '#ff4444' : ''
+                }}
               />
             </div>
 
@@ -107,7 +177,6 @@ function Contact() {
                 placeholder="Phone Number"
                 value={formData.phone}
                 onChange={handleChange}
-                required
               />
             </div>
 
@@ -118,7 +187,10 @@ function Contact() {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleChange}
-                required
+                className={validationErrors.subject ? 'error-border' : ''}
+                style={{
+                  borderColor: validationErrors.subject ? '#ff4444' : ''
+                }}
               />
             </div>
           </div>
@@ -130,7 +202,10 @@ function Contact() {
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                required
+                className={validationErrors.message ? 'error-border' : ''}
+                style={{
+                  borderColor: validationErrors.message ? '#ff4444' : ''
+                }}
               ></textarea>
             </div>
           </div>
@@ -146,6 +221,44 @@ function Contact() {
           Send Message
         </button>
       </form>
+
+      <style jsx>{`
+        .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+
+        .popup-message {
+          background: linear-gradient(135deg, #00c8deff 0%, #00e5ff 100%);
+          padding: 20px 30px;
+          border-radius: 12px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          max-width: 400px;
+          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .popup-message p {
+          margin: 0;
+          color: #ffffff;
+          font-size: 16px;
+          font-weight: 500;
+          text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .error-border {
+          border-color: #ff4444 !important;
+          box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+        }
+      `}</style>
     </div>
   )
 }

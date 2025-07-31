@@ -72,6 +72,7 @@
   transition: all 0.3s ease;
   display: block;
   margin-left: auto;
+  
 }
 
 .submit-button:hover {
@@ -109,26 +110,31 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .contact-container {
-    padding: 4.5rem 1rem;
+    align-items: center;
+    padding: 3rem 1rem;
   }
 
   .contact-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
+    align-items: center;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    width: 100%;
+    gap: 0.5rem;
+    margin-left: 5%;
   }
 
   .form-group textarea {
-    min-height: 150px;
+    min-height: 110px;
   }
 
   .submit-button {
-    width: 100%;
+    width: 90%;
     margin: 0;
+    margin-left: 5%;
   }
 }
 

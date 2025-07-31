@@ -5,11 +5,11 @@ function Skills() {
   const [activeCategory, setActiveCategory] = useState('Frontend');
 
   const skillsData = {
-    Frontend: ['HTML5', 'CSS3', 'JavaScript','React.js','Node.js','Tailwind CSS', 'Bootstrap','Material UI'],
-    Backend: ['Node.js','Express.js', 'Python', 'PHP', 'Java', 'Ballerina'],
+    Frontend: ['HTML5', 'CSS3', 'JavaScript','Reactjs','Nextjs','Tailwind CSS', 'Bootstrap','Material UI'],
+    Backend: ['Nodejs','Expressjs', 'Python', 'PHP', 'Java', 'Ballerina'],
     Database: ['MySQL', 'MongoDB', 'MSSQL','Firebase'],
     Programming: ['C', 'C++', 'Python', 'JavaScript'],
-    Tools: ['Git', 'Figma', 'Blender', 'Photoshop','ChatGPT','Canva','Gimp','Jupyter'],
+    Tools: ['Git', 'Figma', 'Blender','Jupyter', 'Photoshop','ChatGPT','Canva','Gimp'],
     'Soft Skills': ['Communication', 'Teamwork', 'Problem Solving']
   };
 
@@ -37,7 +37,9 @@ function Skills() {
         {skillsData[activeCategory].map((skill, index) => (
           <div key={index} className="skill-card">
             <div className="skill-icon">
-              <div style={{fontSize: '4rem', marginBottom: '1rem'}}>🔧</div>
+              <div>
+                <img src={`src/skillsIMG/${skill}.png`} alt={skill} />
+              </div>
             </div>
             <span className="skill-name">{skill}</span>
           </div>

@@ -11,7 +11,7 @@ function About() {
   const [isContactHovered, setIsContactHovered] = useState(false)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const jobs = ["Full Stack Developer", "UI/UX Designer", "Freelancer"]
+  const jobs = ["Full-Stack Developer", "3rd Year Undergraduate", "Freelancer", "Cyber Security Enthusiast"]
   const typingRef = useRef(null)
 
   useEffect(() => {
@@ -57,10 +57,9 @@ function About() {
     <div className="container">
       <div className="about_left">
         <div className="al_name slide-in-left">
-          <h2 className="al_name_base">Hi, I&apos;m <span className="name-highlight">Pathum</span></h2>
+          <h2 className="al_name_base">Hi, I&apos;m <span className="name-highlight" style={{ color: "#00e5ff" }}>Pathum</span></h2>
         </div>
         <div className="al_job_role slide-in-left">
-          <h3 className="al_job_base">I&apos;m a</h3>
           <h3 className="al_job_details">
             <span className="typing-effect" ref={typingRef}>
               {displayedJob}
@@ -69,7 +68,7 @@ function About() {
         </div>
         <div className="al_description slide-in-left">
           <p>
-            I craft interfaces with the spirit of poetry and logic. Bring designs into forms you can feel on screen.
+            Third-year IT undergraduate at the University of Moratuwa, passionate about full-stack development, UI/UX design, and cybersecurity. I love creating secure, user-friendly web experiences and constantly exploring new challenges to grow as a developer.
           </p>
         </div>
         <div className="al_social slide-in-left">
@@ -88,7 +87,7 @@ function About() {
         </div>
         <div className="al_contact_way slide-in-left">
           <div className="al_hire_me">
-            <button style={hireMeStyle}>Downloard CV</button>
+            <a href="/cv.pdf" style={{ textDecoration: "none" }} download><button style={hireMeStyle}>Download CV</button></a>
           </div>
           <div className="al_contact">
             <button
