@@ -1,6 +1,8 @@
+/* eslint-disable react/no-unknown-property */
 import "./Contact.css"
 import { useState, useRef, useEffect } from "react"
 import emailjs from "@emailjs/browser"
+import AnimatedBackground from "./AnimatedBackground"
 
 function Contact() {
   const form = useRef()
@@ -126,6 +128,7 @@ function Contact() {
 
   return (
     <div className="contact-container">
+      <AnimatedBackground />
       <h1 className="contact-title">
         Contact <span className="highlight">Me</span>
       </h1>

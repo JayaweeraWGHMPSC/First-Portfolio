@@ -1,73 +1,248 @@
 import "./Education.css";
+import { useState } from "react";
+import AnimatedBackground from "./AnimatedBackground";
 
 function Education() {
+    const [activeCategory, setActiveCategory] = useState('Education');
+    const [isLoading, setIsLoading] = useState(false);
+    const [expandedCards, setExpandedCards] = useState(new Set());
+
+    const educationData = {
+        Education: [
+            {
+                id: 1,
+                title: "Ordinary Level (O/L)",
+                institution: "Medirigiriya National College",
+                location: "Medirigiriya, Sri Lanka", 
+                period: "2018",
+                description: "Completed Ordinary Level examination with excellent results in Science and Mathematics subjects.",
+                grade: "Results: 7A's & 2B's ",
+                logo: "./src/images/meda.png" // Add your school logo
+            },
+            {
+                id: 2,
+                title: "Advanced Level (A/L)",
+                institution: "Medirigiriya National College",
+                location: "Medirigiriya, Sri Lanka",
+                period: "2021",
+                description: "Completed Advanced Level in Physical Science stream with Mathematics, Physics, and Chemistry.",
+                grade: "Results: B B C",
+                logo: "./src/images/meda.png" // Add your school logo
+            },
+            {
+                id: 3,
+                title: "Web development and Python Programming",
+                institution: "Open Learning Platform UoM",
+                location: "Online Platform - UoM",
+                period: "2023",
+                description: "Completed Web development and Python Programming courses with a focus on practical applications.",
+                grade: "Completed with Distinction",
+                logo: "./src/images/uom.png" // Add your school logo
+            },
+            {
+                id: 4,
+                title: "Bachelor of Information Technology (UG)",
+                institution: "University of Moratuwa",
+                location: "Moratuwa, Sri Lanka",
+                period: "Present",
+                description: "Currently pursuing a Bachelor's degree in Information Technology with focus on Software Engineering and Computer Networks.",
+                grade: "Current GPA: 3.51/4.0",
+                logo: "./src/images/uom.png" // Add your University of Moratuwa logo
+            },
+            {
+                id: 5,
+                title: "Ethical Hacking",
+                institution: "Cisco Networking Academy",
+                location: "Online Platform - CNA",
+                period: "Present",
+                description: "Currently pursuing Ethical Hacking certification with focus on penetration testing, vulnerability assessment, and cybersecurity defense strategies.",
+                grade: "Ongoing",
+                logo: "./src/images/cisco.png" // Add your Cisco Networking Academy logo
+            }
+
+        ],
+        Experience: [
+            {
+                id: 1,
+                title: "Freelance Web Developer",
+                institution: "Freelance Projects",
+                period: "2023 - Present",
+                description: "Developed custom websites and web applications for various clients using modern technologies like React, HTML, CSS, and JavaScript. Created responsive designs and implemented user-friendly interfaces.",
+                grade: "Multiple Projects Completed",
+                logo: "./src/images/freelance-logo.png" // Add freelance logo
+            },
+            {
+                id: 2,
+                title: "Full Stack Web Developer",
+                institution: "Project Given by WSO2",
+                period: "2024",
+                description: "Developed a comprehensive full-stack web application for a project assigned by WSO2. Implemented both frontend and backend functionalities using modern web technologies and frameworks.",
+                grade: "Project Successfully Completed",
+                logo: "./src/images/wso2-logo.png" // Add WSO2 logo
+            },
+            {
+                id: 3,
+                title: "Programming Tutor",
+                institution: "Private Tutoring",
+                period: "2023 - Present",
+                description: "Providing programming tutorials covering Python, Java, and software development concepts. Helping students understand programming fundamentals and problem-solving techniques.",
+                grade: "10+ Students Mentored",
+                logo: "./src/images/programming-tutor-logo.png" // Add programming tutor logo
+            }
+        ],
+        Certificate: [
+            {
+                id: 1,
+                title: "Python Programming Certification",
+                institution: "Open Learning Platform - University of Moratuwa",
+                description: "Completed comprehensive Python programming course covering fundamentals, data structures, algorithms, and practical applications. Gained proficiency in Python syntax, object-oriented programming, and problem-solving techniques.",
+                certificateImage: "./src/images/uompython.jpeg" // Add certificate image
+            },
+            {
+                id: 2,
+                title: "Web Development Certification",
+                institution: "Open Learning Platform - University of Moratuwa",
+                description: "Completed web development course covering HTML, CSS, JavaScript, and modern web technologies. Learned responsive design principles, frontend frameworks, and full-stack development concepts.",
+                certificateImage: "./src/images/uomweb.jpeg" // Add certificate image
+            },
+            {
+                id: 3,
+                title: "Introduction to Cybersecurity",
+                institution: "Cisco Networking Academy",
+                description: "Completed introductory cybersecurity course covering fundamental security concepts, threat detection, network security principles, and basic ethical hacking techniques. Gained understanding of cybersecurity frameworks and defense strategies.",
+                certificateImage: "./src/images/cisco.jpg" // Add certificate image
+            },
+            {
+                id: 4,
+                title: "CodeRush Programming Competition",
+                institution: "INTEC - Faculty of IT, University of Moratuwa",
+                description: "Participated and achieved recognition in CodeRush programming competition organized by INTEC. Demonstrated problem-solving skills and programming proficiency in competitive programming challenges using various programming languages.",
+                certificateImage: "./src/images/code2023.jpeg" // Add certificate image
+            },
+            {
+                id: 5,
+                title: "AlgoXplore 1.0 - Hackathon & CTF Challenge",
+                institution: "Hackathon Hub - NSBM Green University",
+                description: "Participated in AlgoXplore 1.0, a comprehensive Hackathon and Capture the Flag (CTF) challenge. Demonstrated skills in algorithm design, cybersecurity, problem-solving, and innovative solution development in a competitive environment.",
+                certificateImage: "./src/images/x.jpeg" // Add certificate image
+            }
+        ]
+    };
+
+    const categories = Object.keys(educationData);
+
+    const handleCategoryChange = (category) => {
+        setIsLoading(true);
+        setExpandedCards(new Set()); // Reset expanded cards when changing category
+        
+        // Add a slight delay for animation effect
+        setTimeout(() => {
+            setActiveCategory(category);
+            setIsLoading(false);
+        }, 200);
+    };
+
+    const toggleCardExpansion = (cardId) => {
+        const newExpandedCards = new Set(expandedCards);
+        if (newExpandedCards.has(cardId)) {
+            newExpandedCards.delete(cardId);
+        } else {
+            newExpandedCards.add(cardId);
+        }
+        setExpandedCards(newExpandedCards);
+    };
+
     return (
-        <div className="education-container">
-            <h1 className="education-title">Educational Journey</h1>
-
-            <div className="timeline-container">
-                <div className="timeline-line"></div>
-
-                <div className="timeline-node left">
-                    <div className="timeline-date-marker">
-                        <div className="timeline-dot"></div>
-                    </div>
-                    <div className="education-card">
-                        <h2 className="education-level">Primary Education</h2>
-                        <div className="education-details">
-                            <p>7As and 2Bs</p>
-                            <p>G.C.E (Ordinary Level) Examination </p>
-                            <p>Medirigiriya National School</p>
-
-                        </div>
-                    </div>
-                </div>
-
-                {/* 2019-2022 Secondary Education - Right side */}
-                <div className="timeline-node right">
-                    <div className="timeline-date-marker">
-                        <div className="timeline-dot"></div>
-                    </div>
-                    <div className="education-card">
-                        <h2 className="education-level">Secondary Education</h2>
-                        <div className="education-details">
-                            <p>BBC (Physical Science)</p>
-                            <p>G.C.E (Advanced Level) Examination </p>
-                            <p>Medirigiriya National School</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 2023-2024 Foundation - Left side */}
-                <div className="timeline-node left">
-                    <div className="timeline-date-marker">
-                        <div className="timeline-dot"></div>
-                    </div>
-                    <div className="education-card">
-                        <h2 className="education-level">Foundation</h2>
-                        <div className="education-details">
-                            <p>Web Design for Beginners course</p>
-                            <p>Open Learning Platform</p>
-                            <p>University of Moratuwa</p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 2024-Present University - Right side */}
-                <div className="timeline-node right">
-                    <div className="timeline-date-marker">
-                        <div className="timeline-dot"></div>
-                    </div>
-                    <div className="education-card">
-                        <h2 className="education-level">University</h2>
-                        <div className="education-details">
-                            <p>BSc (Hons) Information Technology (UG)</p>
-                            <p>Faculty of Information Technology</p>
-                            <p>University of Moratuwa</p>
-                        </div>
-                    </div>
-                </div>
+        <div id="education" className="education-container">
+            <AnimatedBackground />
+            <h1 className="education-title">My <span style={{ color: "cyan" }}>Journey</span></h1>
+            
+            {/* Category Navigation */}
+            <div className="education-nav">
+                {categories.map((category) => (
+                    <button
+                        key={category}
+                        className={`education-nav-btn ${activeCategory === category ? 'active' : ''}`}
+                        onClick={() => handleCategoryChange(category)}
+                    >
+                        {category}
+                    </button>
+                ))}
             </div>
+
+            {/* Education Cards */}
+            <div className={`education-grid ${isLoading ? 'loading' : ''}`}>
+                {isLoading ? (
+                    <div className="loading-spinner">
+                        <div className="spinner"></div>
+                    </div>
+                ) : (
+                    educationData[activeCategory].map((item, index) => (
+                        <div key={`${activeCategory}-${item.id}`} className={`education-card ${activeCategory === 'Certificate' ? 'certificate-card' : ''} fade-in-card`} style={{animationDelay: `${index * 0.1}s`}}>
+                            {activeCategory === 'Certificate' ? (
+                            // Certificate Card Layout
+                            <>
+                                <div className="certificate-image-container">
+                                    <img src={item.certificateImage} alt={`${item.title} certificate`} className="certificate-image" />
+                                </div>
+                                <div className="certificate-content" onClick={() => toggleCardExpansion(`${activeCategory}-${item.id}`)}>
+                                    <h3 className="card-title">{item.title}</h3>
+                                    <div className={`card-description ${expandedCards.has(`${activeCategory}-${item.id}`) ? 'expanded' : ''}`}>
+                                        {item.description}
+                                    </div>
+                                    <div className="expand-indicator">
+                                        {expandedCards.has(`${activeCategory}-${item.id}`) ? 'Tap to collapse' : 'Tap to expand'}
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            // Regular Card Layout (Education & Experience)
+                            <>
+                                <div className="card-header">
+                                    <div className="card-header-left">
+                                        {activeCategory === 'Education' && (
+                                            <div className="card-logo">
+                                                <img src={item.logo} alt={`${item.institution} logo`} />
+                                            </div>
+                                        )}
+                                        <div className="card-title-section">
+                                            <div className="card-institution-container">
+                                                <h3 className="card-title">{item.title}</h3>
+                                                <div className="card-institution">{item.institution}</div>
+                                                {activeCategory === 'Education' && item.location && (
+                                                    <div className="card-location">{item.location}</div>
+                                                )}
+                                            </div>
+                                            {activeCategory === 'Education' && (
+                                                <span className="card-period-bottom">{item.period}</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    {activeCategory !== 'Education' && activeCategory !== 'Experience' && (
+                                        <span className="card-period">{item.period}</span>
+                                    )}
+                                </div>
+                                <div className="card-description">{item.description}</div>
+                                <div className="card-grade">{item.grade}</div>
+                            </>
+                        )}
+                    </div>
+                ))
+                )}
+            </div>
+
+            {/* LinkedIn Button for Certificate Section */}
+            {!isLoading && activeCategory === 'Certificate' && (
+                <div className="linkedin-button-container">
+                    <button 
+                        className="linkedin-btn"
+                        onClick={() => window.open('https://www.linkedin.com/in/pathumscj', '_blank')}
+                    >
+                        <span className="linkedin-btn-text">View All Certifications and Achievements</span>
+                        <span className="linkedin-btn-icon">→</span>
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

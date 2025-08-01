@@ -1,12 +1,15 @@
 .skills-container {
     min-height: 100vh;
     background-color: black;
+    background: transparent;
     color: white;
     padding: 4rem 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: system-ui, -apple-system, sans-serif;
+    position: relative;
+    overflow: hidden;
 }
 
 .skills-title {
@@ -14,6 +17,13 @@
     font-weight: bold;
     margin-bottom: 2rem;
     text-align: center;
+    background: linear-gradient(45deg, #00ffff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    color: #00ffff;
+    z-index: 2;
 }
 
 /* Skills Navigation */
@@ -23,6 +33,8 @@
     margin-bottom: 3rem;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 .skills-nav-btn {
@@ -57,6 +69,8 @@
     gap: 2rem;
     max-width: 900px;
     width: 100%;
+    position: relative;
+    z-index: 2;
 }
 
 .skill-card {
