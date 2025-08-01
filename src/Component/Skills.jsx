@@ -26,8 +26,8 @@ function Skills() {
   return (
     <div id="skills" className="skills-container">
       <AnimatedBackground />
-      <h1 className="skills-title">Skills</h1>
-      
+      <h1 className="skills-title">Skill<span style={{ color: '#00ffff' }}>s</span></h1>
+
       {/* Category Navigation */}
       <div className="skills-nav">
         {categories.map((category) => (

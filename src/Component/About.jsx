@@ -1,6 +1,6 @@
 import "./About.css"
-import { FaGithub, FaLinkedin, FaTwitter, FaArrowUp } from "react-icons/fa";
-import { SiFiverr } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
+import { SiFiverr, SiGmail } from "react-icons/si";
 import { useState, useEffect, useRef } from "react"
 
 function About() {
@@ -92,14 +92,14 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
             </p>
           </div>
           <div className="al_social slide-in-left">
-            <a href="https://www.linkedin.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/pathumscj" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={24} />
             </a>
             <a href="https://github.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaGithub size={24} />
             </a>
-            <a href="https://twitter.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
-              <FaTwitter size={24} />
+            <a href="mailto:pathumwghm@gmail.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+              <SiGmail size={24} />
             </a>
             <a href="https://www.fiverr.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
               <SiFiverr size={24} />
