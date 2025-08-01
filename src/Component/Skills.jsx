@@ -1,5 +1,6 @@
 import "./Skills.css";
 import { useState } from "react";
+import AnimatedBackground from "./AnimatedBackground";
 
 function Skills() {
   const [activeCategory, setActiveCategory] = useState('Frontend');
@@ -24,6 +25,7 @@ function Skills() {
 
   return (
     <div id="skills" className="skills-container">
+      <AnimatedBackground />
       <h1 className="skills-title">Skills</h1>
       
       {/* Category Navigation */}
