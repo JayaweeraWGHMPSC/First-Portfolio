@@ -1,5 +1,6 @@
 import "./Footer.css";
-import { FaWhatsapp, FaFacebook, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { SiGmail, SiFiverr } from "react-icons/si";
 
 function Footer() {
     return (
@@ -7,17 +8,23 @@ function Footer() {
             <div className="footer-content">
                 {/* Social Media Icons */}
                 <div className="social-icons">
-                    <a href="https://wa.me/yourwhatsappnumber" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <a href="https://www.linkedin.com/in/pathumscj" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <FaLinkedin />
+                    </a>
+                    <a href="mailto:pathumwghm@gmail.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <SiGmail />
+                    </a>
+                    <a href="https://wa.me/+94750798576" target="_blank" rel="noopener noreferrer" className="social-icon">
                         <FaWhatsapp />
+                    </a>
+                    <a href="https://www.fiverr.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+                        <SiFiverr />
                     </a>
                     <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
                         <FaFacebook />
                     </a>
                     <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
                         <FaInstagram />
-                    </a>
-                    <a href="https://tiktok.com/@yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-                        <FaTiktok />
                     </a>
                 </div>
 
