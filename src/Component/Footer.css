@@ -96,8 +96,19 @@
 
 @media (max-width: 480px) {
   .footer-nav {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  /* Hide Instagram icon on mobile */
+  .social-icons .social-icon:last-child {
+    display: none;
+  }
+
+  /* Hide Skills link on mobile */
+  .footer-nav .nav-link:last-child {
+    display: none;
   }
 }

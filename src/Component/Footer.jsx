@@ -30,11 +30,11 @@ function Footer() {
 
                 {/* Navigation Links */}
                 <nav className="footer-nav">
-                    <a href="/faq" className="nav-link">FAQ</a>
-                    <a href="/services" className="nav-link">Services</a>
-                    <a href="/about" className="nav-link">About Me</a>
+                    <a href="/about" className="nav-link">About</a>
+                    <a href="/services" className="nav-link">Service</a>
                     <a href="/contact" className="nav-link">Contact</a>
-                    <a href="/skills" className="nav-link">Skills</a>
+                    <a href="/project" className="nav-link">Project</a>
+                    <a href="/skills" className="nav-link">Skill</a>
                 </nav>
 
                 {/* Copyright */}

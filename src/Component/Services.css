@@ -1,70 +1,515 @@
 .services-container {
-    min-height: 100vh;
-    background-color: black;
-    color: white;
-    padding: 7% 8% 0 8%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: system-ui, -apple-system, sans-serif;
-  }
-  
-  .services-title {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background: transparent;
+  color: white;
+  min-height: 100vh;
+}
+
+.services-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  width: 100%;
+  align-items: start;
+}
+
+/* Left Section Styles */
+.services-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  margin-left: 12%;
+}
+
+
+
+.intro-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: cyan;
+  letter-spacing: 1px;
+}
+
+.intro-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 10px;
+}
+
+.services-expectations {
+  margin-bottom: 20px;
+}
+
+.expectations-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: cyan;
+  margin-bottom: 20px;
+}
+
+.expectations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expectations-list li {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.expectations-list li::before {
+  content: "▶";
+  color: cyan;
+  font-size: 0.8rem;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.services-overview {
+  margin-top: 20px;
+}
+
+.overview-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #c0c0c0;
+  text-align: justify;
+}
+
+/* Right Section Styles */
+.services-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-carousel {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.service-card-container {
+  background:black;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 
+    0 10px 20px rgba(0, 255, 255, 0.1),
+    0 10px 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 
+    0 30px 60px rgba(0, 255, 255, 0.2),
+    0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: cyan;
+}
+
+/* Animation classes for fade transitions */
+.service-card-container.slide-out-left {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.service-card-container.slide-in-center {
+  opacity: 1;
+  transition: opacity 0.6s ease-in;
+}
+
+.service-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: cyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.service-card-container:hover .service-icon {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.service-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: right;
+  margin: 0;
+  letter-spacing: 1px;
+  flex: 1;
+  margin-left: 15px;
+}
+
+.service-card-body {
+  flex-grow: 1;
+  margin-bottom: 30px;
+}
+
+.service-card-description {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: #d0d0d0;
+  text-align: center;
+  margin: 0;
+}
+
+.service-card-footer {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+
+.contact-btn {
+  background: linear-gradient(45deg, cyan, #00a8cc);
+  color: black;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.contact-btn:hover {
+  background: linear-gradient(45deg, #00a8cc, cyan);
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Dots Navigation */
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  border-color: rgba(0, 255, 255, 0.6);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: cyan;
+  border-color: cyan;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
     text-align: center;
   }
   
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    width: 100%;
+  .services-left {
+    order: 2;
   }
   
-  .service-card {
-    background-color: #00ffff;
-    border-radius: 1.5rem;
-    padding: 2rem;
-    color: black;
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
-    transition: transform 0.3s ease;
+  .services-right {
+    order: 1;
   }
   
-  .service-card:hover {
-    transform: translateY(-5px);
-    background-color: #f1f1f1;
+  .overview-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    padding: 60px 15px;
   }
   
-  .service-heading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    background-color: transparent;
+  .services-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
   }
   
-  .service-description {
+  .intro-title {
+    font-size: 2rem;
+  }
+  
+  .service-card-container {
+    padding: 30px 20px;
+    height: 280px;
+  }
+  
+  .service-icon {
+    font-size: 1.8rem;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .service-card-title {
+    font-size: 1.3rem;
+  }
+  
+  .service-card-description {
+    font-size: 0.95rem;
+  }
+  
+  .contact-btn {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-title {
+    font-size: 2rem;
+  }
+  
+  .intro-title {
+    font-size: 1.8rem;
+  }
+  
+  .intro-description,
+  .overview-text {
     font-size: 1rem;
-    line-height: 1.6;
-    background-color: transparent;
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .services-container {
-      padding: 3rem 1rem;
-    }
-  
-    .services-title {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-  
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
+  .expectations-list li {
+    font-size: 1rem;
   }
+
+  /* Hide left section on mobile */
+  .services-left {
+    display: none;
+  }
+
+  /* Make services content single column and center the carousel */
+  .services-content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  /* Add swipe indicator for mobile */
+  .service-carousel::after {
+    content: "← Swipe to navigate →";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: rgba(0, 255, 255, 0.7);
+    font-style: italic;
+    white-space: nowrap;
+  }
+  
+  .service-card-container {
+    padding: 25px 15px;
+    height: 260px;
+    touch-action: pan-x;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .service-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .service-card-title {
+    font-size: 1.1rem;
+  }
+  
+  .service-card-description {
+    font-size: 0.9rem;
+  }
+  
+  /* Truncate specific service descriptions on mobile */
+  .service-card-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .read-more-hint {
+    font-size: 0.75rem;
+    color: cyan;
+    font-style: italic;
+    margin-top: 5px;
+    display: block;
+  }
+}
+
+/* Mobile Popup Styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.popup-content {
+  background: black;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 2px solid cyan;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  position: relative;
+}
+
+.popup-icon {
+  font-size: 2rem;
+  color: cyan;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.popup-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  flex: 1;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: cyan;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.popup-close:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.popup-body {
+  padding: 20px;
+}
+
+.popup-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+  margin: 0;
+  text-align: left;
+}
+
+.popup-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+}
+
+.popup-contact-btn {
+  background: linear-gradient(45deg, cyan, #00a8cc);
+  color: black;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.popup-contact-btn:hover {
+  background: linear-gradient(45deg, #00a8cc, cyan);
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
   
   
