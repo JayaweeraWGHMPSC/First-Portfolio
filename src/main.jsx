@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import AnimatedBackground from './Component/AnimatedBackground.jsx'
 import Navbar from './Component/Navbar.jsx'
 import About from './Component/About.jsx'
 import Education from './Component/Education.jsx'
@@ -12,6 +13,7 @@ import Footer from './Component/Footer.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <AnimatedBackground />
     <Navbar />
     <About />
     <Education />

@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function Skills() {
   const [activeCategory, setActiveCategory] = useState('Frontend');
+  const [animationKey, setAnimationKey] = useState(0);
 
   const skillsData = {
     Frontend: ['HTML5', 'CSS3', 'JavaScript','Reactjs','Nextjs','Tailwind CSS', 'Bootstrap','Material UI'],
@@ -15,6 +16,12 @@ function Skills() {
 
   const categories = Object.keys(skillsData);
 
+  // Reset animation when category changes
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    setAnimationKey(prev => prev + 1); // Force re-render to restart animation
+  };
+
   return (
     <div id="skills" className="skills-container">
       <h1 className="skills-title">Skills</h1>
@@ -25,7 +32,7 @@ function Skills() {
           <button
             key={category}
             className={`skills-nav-btn ${activeCategory === category ? 'active' : ''}`}
-            onClick={() => setActiveCategory(category)}
+            onClick={() => handleCategoryChange(category)}
           >
             {category}
           </button>
@@ -33,7 +40,7 @@ function Skills() {
       </div>
 
       {/* Skills Grid */}
-      <div className="skills-grid">
+      <div key={animationKey} className="skills-grid">
         {skillsData[activeCategory].map((skill, index) => (
           <div key={index} className="skill-card">
             <div className="skill-icon">

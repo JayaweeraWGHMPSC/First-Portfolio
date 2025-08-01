@@ -2,7 +2,7 @@
   min-height: 100vh;
   background-color: black;
   color: white;
-  padding: 4rem 2rem 0 2rem;
+  padding: 4rem 2rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,6 +158,16 @@
 
 /* For tablets specifically (768px to 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
+  .contact-container {
+    min-height: 80vh;
+    padding: 3rem 2rem 1.5rem 2rem;
+  }
+
+  .contact-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
   .submit-button {
     align-self: flex-end;
     margin-left: 0;
