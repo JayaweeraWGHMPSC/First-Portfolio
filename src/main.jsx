@@ -9,6 +9,7 @@ import Services from './Component/Services.jsx'
 import Skills from './Component/Skills.jsx'
 import Contact from './Component/Contact.jsx'
 import Footer from './Component/Footer.jsx'
+import Project from './Component/Project.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
     <About />
     <Education />
     <Services />
+    <Project />
     <Skills />
     <Contact />
     <Footer />

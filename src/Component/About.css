@@ -29,7 +29,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 0.6rem;
-    max-width: 600px;
+    padding-left: 2vw;
 }
 
 /* Animation classes for slide-in effects */
@@ -299,6 +299,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem 0;
+    padding-left: 4rem;
 }
 
 .profile-image {
@@ -543,6 +544,10 @@ body {
     .al_description p {
         font-size: 0.8rem;
         line-height: 1.5;
+    }
+
+    .about_right {
+        padding-left: 0;
     }
     
     .profile-image {

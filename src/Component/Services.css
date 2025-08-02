@@ -154,6 +154,34 @@
   margin-bottom: 30px;
 }
 
+.service-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.work-type-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.work-type-badge.individual {
+  background-color: rgba(0, 255, 255, 0.15);
+  color: #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.work-type-badge.group {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .service-icon {
   font-size: 2rem;
   color: cyan;
@@ -429,6 +457,13 @@
   position: relative;
 }
 
+.popup-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
 .popup-icon {
   font-size: 2rem;
   color: cyan;
@@ -447,7 +482,6 @@
   font-weight: 700;
   color: white;
   margin: 0;
-  flex: 1;
 }
 
 .popup-close {
