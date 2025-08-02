@@ -137,7 +137,8 @@
   font-size: 0.8rem;
   position: absolute;
   left: 0;
-  top: 2px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .services-overview {
@@ -342,10 +343,22 @@
     grid-template-columns: 1fr;
     gap: 60px;
     text-align: center;
+    justify-items: center;
   }
-  
+  .services-container {
+    min-height: 60vh; /* Reduced padding for tighter spacing */
+  }
+  /* Hide left section in tablet view */
   .services-left {
     order: 2;
+    margin-left: 0;
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .services-expectations {
+    display: none;
   }
   
   .services-right {
@@ -369,6 +382,12 @@
   
   .intro-title {
     font-size: 2rem;
+  }
+  
+  .services-left {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
   }
   
   .service-card-container {

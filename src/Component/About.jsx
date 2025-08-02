@@ -65,6 +65,18 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
     })
   }
 
+  // Navigate to contact section
+  const navigateToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const offsetTop = contactSection.offsetTop - 80; // Offset for fixed navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   // Style for the hire me button that changes based on contact hover state
   const hireMeStyle = isContactHovered ? {
     backgroundColor: "rgb(4, 4, 4)",
@@ -113,6 +125,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
               <button
                 onMouseEnter={() => setIsContactHovered(true)}
                 onMouseLeave={() => setIsContactHovered(false)}
+                onClick={navigateToContact}
               >
                 Hire Me
               </button>
@@ -133,7 +146,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
           <div className="stat-number">6+</div>
           <div className="stat-title">Projects</div>
           <div className="stat-description">
-            Built a range of full-stack, mobile, and experimental applications—fueled by caffeine, curiosity, and creativity.
+            Built a range of full-stack, mobile, and experimental applications fueled by caffeine, curiosity, and creativity.
           </div>
         </div>
         <div className="stat-card">
@@ -141,7 +154,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
           <div className="stat-number">2+</div>
           <div className="stat-title">Years Client Experience</div>
           <div className="stat-description">
-            Over two years of hands-on, client-facing work—coding, problem-solving, and shipping real-world solutions.
+            Over two years of hands-on, client-facing work coding, problem-solving, and shipping real-world solutions.
           </div>
         </div>
         <div className="stat-card">

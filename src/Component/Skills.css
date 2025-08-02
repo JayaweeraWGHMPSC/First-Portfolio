@@ -275,3 +275,12 @@
         padding-top: 10%;
     }
 }
+
+/* For laptops and larger screens - reduce spacing with contact section */
+@media (min-width: 1025px) {
+    .skills-container {
+        min-height: fit-content;
+        margin: 3% 5% 0% 5%;
+        padding-bottom: 0.5rem;
+    }
+}
