@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
+  padding: 2rem 20px 1rem; /* Further reduced padding for tighter spacing */
   background: transparent;
   color: white;
-  min-height: 100vh;
+  min-height: 85vh;
 }
 
 .services-title {
@@ -15,6 +15,61 @@
   margin-bottom: 60px;
   text-align: center;
   letter-spacing: 2px;
+}
+
+/* Scroll-triggered animations */
+.hidden-title {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Left section animations - slide in from left */
+.hidden-left {
+  opacity: 0;
+}
+
+.animate-left {
+  opacity: 1;
+}
+
+.hidden-left .animate-item-1,
+.hidden-left .animate-item-2 {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.animate-left .animate-item-1 {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.2s;
+}
+
+.animate-left .animate-item-2 {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: 0.6s;
+}
+
+/* Right section animations - slide up from bottom */
+.hidden-right {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-right {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .services-content {
@@ -342,6 +397,9 @@
 }
 
 @media (max-width: 480px) {
+  .services-container {
+    margin-top: -10%;
+  }
   .services-title {
     font-size: 2rem;
   }

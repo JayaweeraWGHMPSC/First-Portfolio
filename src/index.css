@@ -4,8 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: linear-gradient(135deg, rgb(4, 4, 4) 0%, rgb(4, 4, 4) 25%, rgb(8, 8, 12) 50%, rgb(4, 4, 4) 75%, rgb(4, 4, 4) 100%);
+    background: rgb(4, 4, 4);
     background-size: 400% 400%;
     animation: gradientShift 20s ease infinite;
     position: relative;
@@ -265,5 +269,107 @@ body::after {
     50% {
         transform: scale(1.2);
         opacity: 0.6;
+    }
+}
+
+/* Responsive Section Spacing */
+/* Base section spacing for all sections */
+.container,
+.education-container,
+.services-container,
+.project-container,
+.skills-container,
+.contact-container,
+.footer {
+    margin-bottom: 2rem; /* Further reduced default gap between sections */
+}
+
+/* Desktop/Laptop (1200px and above) */
+@media (min-width: 1200px) {
+    .container,
+    .education-container,
+    .services-container,
+    .project-container,
+    .skills-container,
+    .contact-container {
+        margin-bottom: 3rem; /* Further reduced gap for desktop */
+        padding-top: 2rem; /* Further reduced padding */
+        padding-bottom: 1.5rem; /* Further reduced padding */
+    }
+    
+    /* First section (About/Home) - no top padding */
+    .container {
+        padding-top: 8rem; /* Account for navbar */
+        margin-bottom: 6rem; /* Slightly reduced gap to Education */
+    }
+    
+    /* Education section - keep good spacing from About */
+    .education-container {
+        padding-top: 4rem;
+    }
+    
+    /* Footer - no bottom margin */
+    .footer {
+        margin-bottom: 0;
+    }
+}
+
+/* Tablet (768px to 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .container,
+    .education-container,
+    .services-container,
+    .project-container,
+    .skills-container,
+    .contact-container {
+        margin-bottom: 2.5rem; /* Further reduced gap for tablet */
+        padding-top: 2rem; /* Further reduced padding */
+        padding-bottom: 1rem; /* Further reduced padding */
+    }
+    
+    /* First section (About/Home) - account for navbar */
+    .container {
+        padding-top: 6rem;
+        margin-bottom: 4rem; /* Slightly reduced gap to Education */
+    }
+    
+    /* Education section */
+    .education-container {
+        padding-top: 3rem;
+    }
+    
+    /* Footer - no bottom margin */
+    .footer {
+        margin-bottom: 0;
+    }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .container,
+    .education-container,
+    .services-container,
+    .project-container,
+    .skills-container,
+    .contact-container {
+        margin-bottom: 1.5rem; /* Further reduced gap for mobile */
+        padding-top: 1rem; /* Further reduced padding */
+        padding-bottom: 0.5rem; /* Further reduced padding */
+    }
+    
+    /* First section (About/Home) - account for navbar */
+    .container {
+        padding-top: 4rem;
+        margin-bottom: 2rem; /* Reduced gap to Education */
+    }
+    
+    /* Education section */
+    .education-container {
+        padding-top: 1.5rem;
+    }
+    
+    /* Footer - no bottom margin */
+    .footer {
+        margin-bottom: 0;
     }
 }

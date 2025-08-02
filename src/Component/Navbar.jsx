@@ -10,6 +10,30 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    setIsMenuOpen(false); // Close mobile menu if open
+    
+    // Handle home section - scroll to top
+    if (targetId === 'home') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+      return;
+    }
+
+    // For other sections, find the element and scroll to it
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80; // Offset for fixed navbar
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
       setIsMenuOpen(false);
@@ -44,32 +68,32 @@ const Navbar = () => {
       <div className="navbar_list">
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li>
-            <a href="#home" onClick={toggleMenu}>
+            <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')}>
               Home
             </a>
           </li>
           <li>
-            <a href="#education" onClick={toggleMenu}>
+            <a href="#education" onClick={(e) => handleSmoothScroll(e, 'education')}>
               Education
             </a>
           </li>
           <li>
-            <a href="#services" onClick={toggleMenu}>
+            <a href="#services" onClick={(e) => handleSmoothScroll(e, 'services')}>
               Services
             </a>
           </li>
           <li>
-            <a href="#websites" onClick={toggleMenu}>
+            <a href="#websites" onClick={(e) => handleSmoothScroll(e, 'websites')}>
               Projects
             </a>
           </li>
           <li>
-            <a href="#skills" onClick={toggleMenu}>
+            <a href="#skills" onClick={(e) => handleSmoothScroll(e, 'skills')}>
               Skills
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={toggleMenu}>
+            <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>
               Contact
             </a>
           </li>

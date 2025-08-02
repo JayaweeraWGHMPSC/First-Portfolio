@@ -21,6 +21,45 @@ function Contact() {
   const [showPopup, setShowPopup] = useState(false)
   const [popupMessage, setPopupMessage] = useState("")
 
+  // Animation states for scroll-triggered animations
+  const [isVisible, setIsVisible] = useState(false)
+  const [showTitle, setShowTitle] = useState(false)
+  const [showForm, setShowForm] = useState(false)
+  
+  const containerRef = useRef(null)
+
+  // Intersection Observer for scroll-triggered animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true)
+            
+            // Sequence the animations
+            setTimeout(() => setShowTitle(true), 200)
+            setTimeout(() => setShowForm(true), 800)
+          }
+        })
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: '-50px 0px -50px 0px' // Add some margin for better timing
+      }
+    )
+
+    const currentContainer = containerRef.current
+    if (currentContainer) {
+      observer.observe(currentContainer)
+    }
+
+    return () => {
+      if (currentContainer) {
+        observer.unobserve(currentContainer)
+      }
+    }
+  }, [isVisible])
+
   useEffect(() => {
     if (status.message) {
       const timer = setTimeout(() => {
@@ -127,9 +166,9 @@ function Contact() {
   }
 
   return (
-    <div className="contact-container">
+    <div id="contact" className="contact-container" ref={containerRef}>
       <AnimatedBackground />
-      <h1 className="contact-title">
+      <h1 className={`contact-title ${showTitle ? 'animate-title' : 'hidden-title'}`}>
         Contact <span className="highlight">Me</span>
       </h1>
 
@@ -142,10 +181,10 @@ function Contact() {
         </div>
       )}
 
-      <form ref={form} className="contact-form" onSubmit={handleSubmit}>
+      <form ref={form} className={`contact-form ${showForm ? 'animate-form' : 'hidden-form'}`} onSubmit={handleSubmit}>
         <div className="form-grid">
-          <div className="form-left">
-            <div className="form-group">
+          <div className="form-left animate-form-left">
+            <div className="form-group animate-form-item">
               <input
                 type="text"
                 name="fullName"
@@ -159,7 +198,7 @@ function Contact() {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group animate-form-item">
               <input
                 type="text"
                 name="email"
@@ -173,7 +212,7 @@ function Contact() {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group animate-form-item">
               <input
                 type="tel"
                 name="phone"
@@ -183,7 +222,7 @@ function Contact() {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group animate-form-item">
               <input
                 type="text"
                 name="subject"
@@ -198,8 +237,8 @@ function Contact() {
             </div>
           </div>
 
-          <div className="form-right">
-            <div className="form-group">
+          <div className="form-right animate-form-right">
+            <div className="form-group animate-form-item">
               <textarea
                 name="message"
                 placeholder="Your Message"
@@ -220,7 +259,7 @@ function Contact() {
           </div>
         )}
 
-        <button type="submit" className="submit-button">
+        <button type="submit" className="submit-button animate-form-item">
           Send Message
         </button>
       </form>

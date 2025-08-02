@@ -2,13 +2,94 @@
   background-color: black;
   background: transparent;
   color: white;
-  padding: 2rem 2rem 3rem 2rem;
+  padding: 2rem 2rem 1rem; /* Further reduced padding for tighter spacing */
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: system-ui, -apple-system, sans-serif;
   position: relative;
   overflow: hidden;
+}
+
+/* Animation classes for scroll-triggered effects */
+.hidden-title {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hidden-form {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-form {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-form-left .animate-form-item {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInFromLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-form-left .animate-form-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.animate-form-left .animate-form-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.animate-form-left .animate-form-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.animate-form-right .animate-form-item {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.animate-form-right .animate-form-item:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.submit-button.animate-form-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideInFromBottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes slideInFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact-title {

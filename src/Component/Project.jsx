@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Project.css';
 
 const Project = () => {
@@ -6,6 +6,45 @@ const Project = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Animation states for scroll-triggered animations
+  const [isVisible, setIsVisible] = useState(false);
+  const [showTitle, setShowTitle] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
+  
+  const containerRef = useRef(null);
+
+  // Intersection Observer for scroll-triggered animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+            
+            // Sequence the animations
+            setTimeout(() => setShowTitle(true), 200);
+            setTimeout(() => setShowProjects(true), 800);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: '-50px 0px -50px 0px' // Add some margin for better timing
+      }
+    );
+
+    const currentContainer = containerRef.current;
+    if (currentContainer) {
+      observer.observe(currentContainer);
+    }
+
+    return () => {
+      if (currentContainer) {
+        observer.unobserve(currentContainer);
+      }
+    };
+  }, [isVisible]);
 
   // Check if device is mobile
   useEffect(() => {
@@ -106,14 +145,14 @@ const Project = () => {
   const projectsToShow = isMobile && !showAllProjects ? projects.slice(0, 2) : projects;
 
   return (
-    <div className="project-container">
-      <h2 className="project-title">
+    <div id="websites" className="project-container" ref={containerRef}>
+      <h2 className={`project-title ${showTitle ? 'animate-title' : 'hidden-title'}`}>
         My <span className="highlight">Projects</span>
       </h2>
       
-      <div className="projects-grid">
+      <div className={`projects-grid ${showProjects ? 'animate-projects' : 'hidden-projects'}`}>
         {projectsToShow.map((project) => (
-          <div key={project.id} className="project-card">
+          <div key={project.id} className="project-card animate-project-card">
             <div className="project-image-container">
               <img 
                 src={project.image} 

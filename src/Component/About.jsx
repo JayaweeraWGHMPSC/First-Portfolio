@@ -73,7 +73,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
   } : {};
 
   return (
-    <div className="container">
+    <div id="home" className="container">
       <div className="about-main">
         <div className="about_left">
           <div className="al_name slide-in-left">

@@ -1,11 +1,52 @@
 import "./Education.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import AnimatedBackground from "./AnimatedBackground";
 
 function Education() {
     const [activeCategory, setActiveCategory] = useState('Education');
     const [isLoading, setIsLoading] = useState(false);
     const [expandedCards, setExpandedCards] = useState(new Set());
+    
+    // Animation states
+    const [isVisible, setIsVisible] = useState(false);
+    const [showTitle, setShowTitle] = useState(false);
+    const [showNav, setShowNav] = useState(false);
+    const [showCards, setShowCards] = useState(false);
+    
+    const containerRef = useRef(null);
+
+    // Intersection Observer for scroll-triggered animations
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && !isVisible) {
+                        setIsVisible(true);
+                        
+                        // Sequence the animations
+                        setTimeout(() => setShowTitle(true), 200);
+                        setTimeout(() => setShowNav(true), 600);
+                        setTimeout(() => setShowCards(true), 1000);
+                    }
+                });
+            },
+            {
+                threshold: 0.2, // Trigger when 20% of the element is visible
+                rootMargin: '-50px 0px -50px 0px' // Add some margin for better timing
+            }
+        );
+
+        const currentContainer = containerRef.current;
+        if (currentContainer) {
+            observer.observe(currentContainer);
+        }
+
+        return () => {
+            if (currentContainer) {
+                observer.unobserve(currentContainer);
+            }
+        };
+    }, [isVisible]);
 
     const educationData = {
         Education: [
@@ -132,13 +173,18 @@ function Education() {
     const categories = Object.keys(educationData);
 
     const handleCategoryChange = (category) => {
+        if (category === activeCategory) return;
+        
         setIsLoading(true);
         setExpandedCards(new Set()); // Reset expanded cards when changing category
+        setShowCards(false); // Hide cards before switching
         
         // Add a slight delay for animation effect
         setTimeout(() => {
             setActiveCategory(category);
             setIsLoading(false);
+            // Show cards after category change
+            setTimeout(() => setShowCards(true), 100);
         }, 200);
     };
 
@@ -153,12 +199,14 @@ function Education() {
     };
 
     return (
-        <div id="education" className="education-container">
+        <div id="education" className="education-container" ref={containerRef}>
             <AnimatedBackground />
-            <h1 className="education-title">My <span style={{ color: "cyan" }}>Journey</span></h1>
+            <h1 className={`education-title ${showTitle ? 'animate-title' : 'hidden-title'}`}>
+                My <span style={{ color: "cyan" }}>Journey</span>
+            </h1>
             
             {/* Category Navigation */}
-            <div className="education-nav">
+            <div className={`education-nav ${showNav ? 'animate-nav' : 'hidden-nav'}`}>
                 {categories.map((category) => (
                     <button
                         key={category}
@@ -171,14 +219,14 @@ function Education() {
             </div>
 
             {/* Education Cards */}
-            <div className={`education-grid ${isLoading ? 'loading' : ''}`}>
+            <div className={`education-grid ${isLoading ? 'loading' : ''} ${showCards ? 'animate-cards' : 'hidden-cards'}`}>
                 {isLoading ? (
                     <div className="loading-spinner">
                         <div className="spinner"></div>
                     </div>
                 ) : (
-                    educationData[activeCategory].map((item, index) => (
-                        <div key={`${activeCategory}-${item.id}`} className={`education-card ${activeCategory === 'Certificate' ? 'certificate-card' : ''} fade-in-card`} style={{animationDelay: `${index * 0.1}s`}}>
+                    educationData[activeCategory].map((item) => (
+                        <div key={`${activeCategory}-${item.id}`} className={`education-card ${activeCategory === 'Certificate' ? 'certificate-card' : ''} fade-in-card`}>
                             {activeCategory === 'Certificate' ? (
                             // Certificate Card Layout
                             <>

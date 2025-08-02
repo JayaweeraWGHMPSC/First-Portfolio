@@ -1,5 +1,5 @@
 import "./Services.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaCode, FaServer, FaLayerGroup, FaPalette, FaPuzzlePiece, FaMobile } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
 
@@ -12,6 +12,47 @@ function Services() {
   const [touchEnd, setTouchEnd] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [animationClass, setAnimationClass] = useState('');
+
+  // Animation states for scroll-triggered animations
+  const [isVisible, setIsVisible] = useState(false);
+  const [showTitle, setShowTitle] = useState(false);
+  const [showLeftContent, setShowLeftContent] = useState(false);
+  const [showRightContent, setShowRightContent] = useState(false);
+  
+  const containerRef = useRef(null);
+
+  // Intersection Observer for scroll-triggered animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+            
+            // Sequence the animations
+            setTimeout(() => setShowTitle(true), 200);
+            setTimeout(() => setShowLeftContent(true), 600);
+            setTimeout(() => setShowRightContent(true), 1000);
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Trigger when 20% of the element is visible
+        rootMargin: '-50px 0px -50px 0px' // Add some margin for better timing
+      }
+    );
+
+    const currentContainer = containerRef.current;
+    if (currentContainer) {
+      observer.observe(currentContainer);
+    }
+
+    return () => {
+      if (currentContainer) {
+        observer.unobserve(currentContainer);
+      }
+    };
+  }, [isVisible]);
 
   // Check if device is mobile
   useEffect(() => {
@@ -197,19 +238,21 @@ function Services() {
   };
 
   return (
-    <div className="services-container">
-      <h1 className="services-title">My <span style={{ color: "cyan" }}>Services</span></h1>
+    <div id="services" className="services-container" ref={containerRef}>
+      <h1 className={`services-title ${showTitle ? 'animate-title' : 'hidden-title'}`}>
+        My <span style={{ color: "cyan" }}>Services</span>
+      </h1>
       
       <div className="services-content">
         {/* Left Section */}
-        <div className="services-left">
-          <div className="services-intro">
+        <div className={`services-left ${showLeftContent ? 'animate-left' : 'hidden-left'}`}>
+          <div className="services-intro animate-item-1">
             <p className="intro-description">
               I continuously strengthen my solution-oriented thinking to help clients reach their goals effectively. I offer full digital solutions across frontend/backend development, UI/UX design, mobile apps, SEO, and strategic problem-solving always focusing on scalable architecture, user-centric design, and results-driven execution to turn ideas into impactful digital experiences.
             </p>
           </div>
 
-          <div className="services-expectations">
+          <div className="services-expectations animate-item-2">
             <h3 className="expectations-title">What you can expect</h3>
             <ul className="expectations-list">
               <li>Optimized solutions</li>
@@ -221,7 +264,7 @@ function Services() {
         </div>
 
         {/* Right Section */}
-        <div className="services-right">
+        <div className={`services-right ${showRightContent ? 'animate-right' : 'hidden-right'}`}>
           <div 
             className="service-carousel"
             onMouseEnter={handleCardHover}
