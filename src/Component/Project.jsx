@@ -114,7 +114,7 @@ const Project = () => {
     },
     {
       id: 5,
-      name: "Solo Runner IoT project",
+      name: "Solo Runner IoT Project",
       duration: "8 month",
       workType: "Group",
       status: "Completed",

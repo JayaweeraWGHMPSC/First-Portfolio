@@ -89,6 +89,17 @@
   min-width: 16px;
 }
 
+.contact-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-link:hover {
+  color: rgb(6, 182, 212);
+}
+
 /* Projects Section */
 .project-list {
   list-style: none;
