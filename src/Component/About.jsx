@@ -142,7 +142,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
       <div className="al_statistics slide-in-left">
 
         <div className="stat-card">
-          <div className="stat-icon"><img src="./src/images/project.png" alt="Project Icon" /></div>
+          <div className="stat-icon"><img src="/project.png" alt="Project Icon" /></div>
           <div className="stat-number">6+</div>
           <div className="stat-title">Projects</div>
           <div className="stat-description">
@@ -150,7 +150,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
           </div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon"><img src="./src/images/experience.png" alt="Experience Icon" /></div>
+          <div className="stat-icon"><img src="/experience.png" alt="Experience Icon" /></div>
           <div className="stat-number">2+</div>
           <div className="stat-title">Years Client Experience</div>
           <div className="stat-description">
@@ -158,7 +158,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
           </div>
         </div>
         <div className="stat-card">
-          <div className="stat-icon"><img src="./src/images/programming.png" alt="Coding Icon" /></div>
+          <div className="stat-icon"><img src="/programming.png" alt="Coding Icon" /></div>
           <div className="stat-number">1000+</div>
           <div className="stat-title">Coding Hours</div>
           <div className="stat-description">
