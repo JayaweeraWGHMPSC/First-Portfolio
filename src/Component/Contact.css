@@ -1,9 +1,8 @@
 .contact-container {
-  min-height: 100vh;
   background-color: black;
   background: transparent;
   color: white;
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 3rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,6 +52,7 @@
   color: white;
   font-size: 1rem;
   transition: all 0.3s ease;
+  background-color: rgba(0, 0, 0);
 }
 
 .form-group input:focus,
@@ -192,5 +192,21 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
+  }
+  
+  .contact-container {
+    min-height: 100vh;
+  }
+}
+
+/* For MacBook and larger screens */
+@media (min-width: 1025px) {
+  .contact-container {
+    padding: 3rem 2rem 1rem 2rem;
+    min-height: fit-content;
+  }
+  
+  .contact-title {
+    margin-bottom: 2rem;
   }
 }

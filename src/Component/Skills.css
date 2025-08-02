@@ -1,6 +1,7 @@
 .skills-container {
     min-height: 100vh;
     background-color: black;
+    background: transparent;
     color: white;
     padding: 4rem 2rem;
     display: flex;
@@ -36,6 +37,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: inherit;
+    background-color: black;
 }
 
 .skills-nav-btn:hover {
@@ -70,7 +72,7 @@
     justify-content: center;
     gap: 1rem;
     transition: all 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0);
     
     /* Animation properties */
     opacity: 0;

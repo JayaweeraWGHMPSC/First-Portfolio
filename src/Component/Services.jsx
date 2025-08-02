@@ -30,42 +30,49 @@ function Services() {
       id: 1,
       title: "Frontend Development",
       icon: <FaCode />,
+      workType: "Individual",
       description: "Creating responsive user interfaces with modern frameworks like React, Vue, and Angular. Focus on pixel-perfect designs and exceptional user experiences."
     },
     {
       id: 2,
       title: "Backend Development",
       icon: <FaServer />,
+      workType: "Individual",
       description: "Building robust server-side solutions with scalable architectures, secure APIs, and efficient databases for optimal performance."
     },
     {
       id: 3,
       title: "Full-Stack Development",
       icon: <FaLayerGroup />,
+      workType: "Individual",
       description: "Delivering complete end-to-end solutions that integrate frontend and backend technologies from concept to deployment."
     },
     {
       id: 4,
       title: "UI/UX Design",
       icon: <FaPalette />,
+      workType: "Individual",
       description: "Crafting intuitive and visually stunning user experiences through strategic design thinking. I transform complex user journeys into simple, elegant interfaces that not only look beautiful but also convert visitors into loyal customers."
     },
     {
       id: 5,
       title: "Problem Solving",
       icon: <FaPuzzlePiece />,
+      workType: "Group",
       description: "Analyzing technical challenges and delivering innovative solutions that streamline processes and boost efficiency."
     },
     {
       id: 6,
       title: "Mobile App Development",
       icon: <FaMobile />,
+      workType: "Individual",
       description: "Creating mobile applications for iOS and Android platforms using cutting-edge technologies for seamless user experiences."
     },
     {
       id: 7,
       title: "SEO Optimization",
       icon: <MdSearch />,
+      workType: "Individual",
       description: "Boosting your online visibility through strategic search engine optimization techniques. I implement proven SEO strategies that improve your search rankings, increase organic traffic, and help your business get discovered by the right audience."
     }
   ];
@@ -115,7 +122,7 @@ function Services() {
         setIsAnimating(false);
         setAnimationClass('');
         // Resume auto-swapping after 5 seconds
-        setTimeout(() => setIsAutoSwapping(true), 5000);
+        setTimeout(() => setIsAutoSwapping(true), 3000);
       }, 600);
     }, 400);
   };
@@ -172,7 +179,7 @@ function Services() {
           setIsAnimating(false);
           setAnimationClass('');
           // Resume auto-swapping after 3 seconds
-          setTimeout(() => setIsAutoSwapping(true), 3000);
+          setTimeout(() => setIsAutoSwapping(true), 2000);
         }, 600);
       }, 400);
     }
@@ -228,7 +235,9 @@ function Services() {
                 <div className="service-icon">
                   {services[activeCard].icon}
                 </div>
-                <h3 className="service-card-title">{services[activeCard].title}</h3>
+                <div className="service-header-text">
+                  <h3 className="service-card-title">{services[activeCard].title}</h3>
+                </div>
               </div>
               
               <div className="service-card-body">
@@ -274,7 +283,12 @@ function Services() {
               <div className="popup-icon">
                 {services[activeCard].icon}
               </div>
-              <h3 className="popup-title">{services[activeCard].title}</h3>
+              <div className="popup-header-text">
+                <h3 className="popup-title">{services[activeCard].title}</h3>
+                <span className={`work-type-badge ${services[activeCard].workType.toLowerCase()}`}>
+                  {services[activeCard].workType}
+                </span>
+              </div>
               <button className="popup-close" onClick={closePopup}>×</button>
             </div>
             <div className="popup-body">
