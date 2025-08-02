@@ -3,7 +3,7 @@
   background-color: black;
   background: transparent;
   color: white;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 1rem; /* Further reduced padding for tighter spacing */
   font-family: system-ui, -apple-system, sans-serif;
 }
 
@@ -12,12 +12,22 @@
   font-weight: bold;
   margin-bottom: 4rem;
   text-align: center;
-  opacity: 0;
-  transform: translateY(-30px);
-  animation: titleFadeIn 0.8s ease-out forwards;
 }
 
-/* Title animation keyframes */
+/* Scroll-triggered animations */
+.hidden-title {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Title animation keyframes - removed automatic animation */
 @keyframes titleFadeIn {
   to {
     opacity: 1;
@@ -35,11 +45,19 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  opacity: 0;
-  animation: gridFadeIn 0.6s ease-out 0.1s forwards;
 }
 
-/* Grid fade in animation */
+/* Project grid animations */
+.hidden-projects {
+  opacity: 0;
+}
+
+.animate-projects {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Grid fade in animation - removed automatic animation */
 @keyframes gridFadeIn {
   to {
     opacity: 1;
@@ -54,37 +72,41 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(6, 182, 212, 0.2);
   opacity: 0;
-  transform: translateY(50px);
-  animation: projectSlideUp 0.8s ease-out forwards;
+  transform: translateY(100px);
 }
 
-/* Staggered animation delays for each project card */
-.project-card:nth-child(1) {
+/* Only animate when projects should be visible */
+.animate-projects .animate-project-card {
+  animation: projectSlideUpFromBottom 0.8s ease-out forwards;
+}
+
+/* Staggered animation delays for each project card - only when animating */
+.animate-projects .animate-project-card:nth-child(1) {
+  animation-delay: 0.0s;
+}
+
+.animate-projects .animate-project-card:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.project-card:nth-child(2) {
+.animate-projects .animate-project-card:nth-child(3) {
   animation-delay: 0.4s;
 }
 
-.project-card:nth-child(3) {
+.animate-projects .animate-project-card:nth-child(4) {
   animation-delay: 0.6s;
 }
 
-.project-card:nth-child(4) {
+.animate-projects .animate-project-card:nth-child(5) {
   animation-delay: 0.8s;
 }
 
-.project-card:nth-child(5) {
+.animate-projects .animate-project-card:nth-child(6) {
   animation-delay: 1.0s;
 }
 
-.project-card:nth-child(6) {
-  animation-delay: 1.2s;
-}
-
-/* Keyframes for project card slide up animation */
-@keyframes projectSlideUp {
+/* Keyframes for project card slide up from bottom animation */
+@keyframes projectSlideUpFromBottom {
   to {
     opacity: 1;
     transform: translateY(0);
@@ -157,9 +179,13 @@
 /* Add subtle hover animation to project content */
 .project-content {
   padding: 0 1.5rem 1.5rem 1.5rem;
-  background-color: #070708;
+  background-color: #000000;
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* Only animate content when project card is animating */
+.animate-projects .animate-project-card .project-content {
   animation: contentFadeUp 0.6s ease-out forwards;
   animation-delay: inherit;
 }
@@ -615,7 +641,11 @@
   padding: 0 1rem;
   opacity: 0;
   transform: translateY(20px);
-  animation: mobileToggleFadeIn 0.6s ease-out 1.4s forwards;
+}
+
+/* Only animate mobile toggle when projects are visible */
+.animate-projects ~ .mobile-toggle-container {
+  animation: mobileToggleFadeIn 0.6s ease-out 1.2s forwards;
 }
 
 /* Mobile toggle button fade in animation */

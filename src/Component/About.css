@@ -7,11 +7,12 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     gap: 2rem;
-    padding: 8rem 2rem 2rem;
+    padding: 2rem 2rem 4rem; /* Adjusted bottom padding */
     align-items: center;
+    margin-bottom: 5%;
 }
 
 .about-main {
@@ -29,7 +30,8 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 0.6rem;
-    padding-left: 2vw;
+    padding-left: 3.5vw;
+
 }
 
 /* Animation classes for slide-in effects */
@@ -299,7 +301,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem 0;
-    padding-left: 4rem;
+    padding-left: 3rem;
+    margin-left: 4%;
 }
 
 .profile-image {
@@ -726,6 +729,7 @@ body {
     
     .about_right {
         order: 1;
+        margin-left: 0%;
     }
     
     .about_left {
