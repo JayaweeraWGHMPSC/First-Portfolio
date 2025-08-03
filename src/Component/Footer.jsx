@@ -76,6 +76,8 @@ function Footer() {
         }
     ];
 
+    // Handle popup visibility and message  
+
     const handleSmoothScroll = (e, targetId) => {
         e.preventDefault();
         
