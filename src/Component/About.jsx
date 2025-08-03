@@ -107,13 +107,13 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
             <a href="https://www.linkedin.com/in/pathumscj" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaLinkedin size={24} />
             </a>
-            <a href="https://github.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/JayaweeraWGHMPSC" className="social-icon" target="_blank" rel="noopener noreferrer">
               <FaGithub size={24} />
             </a>
             <a href="mailto:pathumwghm@gmail.com" className="social-icon" target="_blank" rel="noopener noreferrer">
               <SiGmail size={24} />
             </a>
-            <a href="https://www.fiverr.com/" className="social-icon" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.fiverr.com/pathum_10/buying?source=avatar_menu_profile" className="social-icon" target="_blank" rel="noopener noreferrer">
               <SiFiverr size={24} />
             </a>
           </div>

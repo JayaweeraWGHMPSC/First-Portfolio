@@ -124,7 +124,7 @@ function Footer() {
                     <a href="https://wa.me/+94750798576" target="_blank" rel="noopener noreferrer" className="social-icon">
                         <FaWhatsapp />
                     </a>
-                    <a href="https://www.fiverr.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+                    <a href="https://www.fiverr.com/pathum_10/buying?source=avatar_menu_profile" target="_blank" rel="noopener noreferrer" className="social-icon">
                         <SiFiverr />
                     </a>
                     <a href="https://www.facebook.com/profile.php?id=100073889082993" target="_blank" rel="noopener noreferrer" className="social-icon">
