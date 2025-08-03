@@ -97,7 +97,7 @@ function Skills() {
           <div key={index} className="skill-card animate-skill-card">
             <div className="skill-icon">
               <div>
-                <img src={`src/skillsIMG/${skill}.png`} alt={skill} />
+                <img src={`/skillsIMG/${skill}.png`} alt={skill} />
               </div>
             </div>
             <span className="skill-name">{skill}</span>

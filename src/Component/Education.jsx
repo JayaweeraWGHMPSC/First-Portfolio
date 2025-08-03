@@ -58,7 +58,7 @@ function Education() {
                 period: "2018",
                 description: "Completed Ordinary Level examination with excellent results in Science and Mathematics subjects.",
                 grade: "Results: 7A's & 2B's ",
-                logo: "./src/images/meda.png" // Add your school logo
+                logo: "/images/meda.png" // Add your school logo
             },
             {
                 id: 2,
@@ -68,7 +68,7 @@ function Education() {
                 period: "2021",
                 description: "Completed Advanced Level in Physical Science stream with Mathematics, Physics, and Chemistry.",
                 grade: "Results: B B C",
-                logo: "./src/images/meda.png" // Add your school logo
+                logo: "/images/meda.png" // Add your school logo
             },
             {
                 id: 3,
@@ -78,7 +78,7 @@ function Education() {
                 period: "2023",
                 description: "Completed Web development and Python Programming courses with a focus on practical applications.",
                 grade: "Completed with Distinction",
-                logo: "./src/images/uom.png" // Add your school logo
+                logo: "/images/uom.png" // Add your school logo
             },
             {
                 id: 4,
@@ -88,7 +88,7 @@ function Education() {
                 period: "Present",
                 description: "Currently pursuing a Bachelor's degree in Information Technology with focus on Software Engineering and Computer Networks.",
                 grade: "Current GPA: 3.51/4.0",
-                logo: "./src/images/uom.png" // Add your University of Moratuwa logo
+                logo: "/images/uom.png" // Add your University of Moratuwa logo
             },
             {
                 id: 5,
@@ -98,7 +98,7 @@ function Education() {
                 period: "Present",
                 description: "Currently pursuing Ethical Hacking certification with focus on penetration testing, vulnerability assessment, and cybersecurity defense strategies.",
                 grade: "Ongoing",
-                logo: "./src/images/cisco.png" // Add your Cisco Networking Academy logo
+                logo: "/images/cisco.png" // Add your Cisco Networking Academy logo
             }
 
         ],
@@ -137,35 +137,35 @@ function Education() {
                 title: "Python Programming Certification",
                 institution: "Open Learning Platform - University of Moratuwa",
                 description: "Completed comprehensive Python programming course covering fundamentals, data structures, algorithms, and practical applications. Gained proficiency in Python syntax, object-oriented programming, and problem-solving techniques.",
-                certificateImage: "./src/images/uompython.jpeg" // Add certificate image
+                certificateImage: "/images/uompython.jpeg" // Add certificate image
             },
             {
                 id: 2,
                 title: "Web Development Certification",
                 institution: "Open Learning Platform - University of Moratuwa",
                 description: "Completed web development course covering HTML, CSS, JavaScript, and modern web technologies. Learned responsive design principles, frontend frameworks, and full-stack development concepts.",
-                certificateImage: "./src/images/uomweb.jpeg" // Add certificate image
+                certificateImage: "/images/uomweb.jpeg" // Add certificate image
             },
             {
                 id: 3,
                 title: "Introduction to Cybersecurity",
                 institution: "Cisco Networking Academy",
                 description: "Completed introductory cybersecurity course covering fundamental security concepts, threat detection, network security principles, and basic ethical hacking techniques. Gained understanding of cybersecurity frameworks and defense strategies.",
-                certificateImage: "./src/images/cisco.jpg" // Add certificate image
+                certificateImage: "/images/cisco.jpg" // Add certificate image
             },
             {
                 id: 4,
                 title: "CodeRush Programming Competition",
                 institution: "INTEC - Faculty of IT, University of Moratuwa",
                 description: "Participated and achieved recognition in CodeRush programming competition organized by INTEC. Demonstrated problem-solving skills and programming proficiency in competitive programming challenges using various programming languages.",
-                certificateImage: "./src/images/code2023.jpeg" // Add certificate image
+                certificateImage: "/images/code2023.jpeg" // Add certificate image
             },
             {
                 id: 5,
                 title: "AlgoXplore 1.0 - Hackathon & CTF Challenge",
                 institution: "Hackathon Hub - NSBM Green University",
                 description: "Participated in AlgoXplore 1.0, a comprehensive Hackathon and Capture the Flag (CTF) challenge. Demonstrated skills in algorithm design, cybersecurity, problem-solving, and innovative solution development in a competitive environment.",
-                certificateImage: "./src/images/x.jpeg" // Add certificate image
+                certificateImage: "/images/x.jpeg" // Add certificate image
             }
         ]
     };
