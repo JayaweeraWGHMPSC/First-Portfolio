@@ -20,6 +20,7 @@ function Contact() {
   const [validationErrors, setValidationErrors] = useState({})
   const [showPopup, setShowPopup] = useState(false)
   const [popupMessage, setPopupMessage] = useState("")
+  const [popupType, setPopupType] = useState("info") // "success", "error", "info"
 
   // Animation states for scroll-triggered animations
   const [isVisible, setIsVisible] = useState(false)
@@ -119,6 +120,7 @@ function Contact() {
     // Check email format if email is provided
     if (formData.email.trim() && !validateEmail(formData.email)) {
       setPopupMessage("Please enter a valid email address")
+      setPopupType("error")
       setShowPopup(true)
       return false
     }
@@ -134,10 +136,9 @@ function Contact() {
       const result = await emailjs.sendForm("service_wf5jpmj", "template_adah41g", form.current, "aXIH89B0VxmHZEaO8")
 
       if (result.text === "OK") {
-        setStatus({
-          message: "Message sent successfully!",
-          isError: false,
-        })
+        setPopupMessage("Message sent successfully! Thank you for contacting me.")
+        setPopupType("success")
+        setShowPopup(true)
         // Clear form
         setFormData({
           fullName: "",
@@ -148,12 +149,10 @@ function Contact() {
         })
         setValidationErrors({})
       }
-    } catch (error) {
-      setStatus({
-        message: "Failed to send message. Please try again.",
-        isError: true,
-        error: error.text || "Unknown error",
-      })
+    } catch {
+      setPopupMessage("Failed to send message. Please try again later.")
+      setPopupType("error")
+      setShowPopup(true)
     }
   }
 
@@ -175,7 +174,7 @@ function Contact() {
       {/* Popup Message */}
       {showPopup && (
         <div className="popup-overlay">
-          <div className="popup-message">
+          <div className={`popup-message ${popupType}`}>
             <p>{popupMessage}</p>
           </div>
         </div>
@@ -253,12 +252,6 @@ function Contact() {
           </div>
         </div>
 
-        {status.message && (
-          <div className={`status-message ${status.isError ? "error" : "success"}`}>
-            {status.message}
-          </div>
-        )}
-
         <button type="submit" className="submit-button animate-form-item">
           Send Message
         </button>
@@ -286,11 +279,39 @@ function Contact() {
           max-width: 400px;
           text-align: center;
           border: 1px solid rgba(255, 255, 255, 0.2);
+          animation: popupSlideIn 0.3s ease-out;
+        }
+
+        .popup-message.success {
+          background: #00e5ff;
+          border: 1px solid rgba(0, 255, 255, 0.4);
+          
+        }
+
+        .popup-message.error {
+          background: #ff5252;
+          border: 1px solid rgba(255, 107, 107, 0.4);
+        }
+
+        .popup-message.info {
+          background: #00e5ff;
+          border: 1px solid rgba(0, 229, 255, 0.4);
+        }
+
+        @keyframes popupSlideIn {
+          from {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
         }
 
         .popup-message p {
           margin: 0;
-          color: #ffffff;
+          color: #000000ff;
           font-size: 16px;
           font-weight: 500;
           text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);

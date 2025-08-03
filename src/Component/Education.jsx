@@ -52,36 +52,6 @@ function Education() {
         Education: [
             {
                 id: 1,
-                title: "Ordinary Level (O/L)",
-                institution: "Medirigiriya National College",
-                location: "Medirigiriya, Sri Lanka", 
-                period: "2018",
-                description: "Completed Ordinary Level examination with excellent results in Science and Mathematics subjects.",
-                grade: "Results: 7A's & 2B's ",
-                logo: "/images/meda.png" // Add your school logo
-            },
-            {
-                id: 2,
-                title: "Advanced Level (A/L)",
-                institution: "Medirigiriya National College",
-                location: "Medirigiriya, Sri Lanka",
-                period: "2021",
-                description: "Completed Advanced Level in Physical Science stream with Mathematics, Physics, and Chemistry.",
-                grade: "Results: B B C",
-                logo: "/images/meda.png" // Add your school logo
-            },
-            {
-                id: 3,
-                title: "Web development and Python Programming",
-                institution: "Open Learning Platform UoM",
-                location: "Online Platform - UoM",
-                period: "2023",
-                description: "Completed Web development and Python Programming courses with a focus on practical applications.",
-                grade: "Completed with Distinction",
-                logo: "/images/uom.png" // Add your school logo
-            },
-            {
-                id: 4,
                 title: "Bachelor of Information Technology (UG)",
                 institution: "University of Moratuwa",
                 location: "Moratuwa, Sri Lanka",
@@ -91,7 +61,17 @@ function Education() {
                 logo: "/images/uom.png" // Add your University of Moratuwa logo
             },
             {
-                id: 5,
+                id: 2,
+                title: "Web development and Python Programming",
+                institution: "Open Learning Platform UoM",
+                location: "Online Platform - UoM",
+                period: "2023",
+                description: "Completed Web development and Python Programming courses with a focus on practical applications.",
+                grade: "Completed with Distinction",
+                logo: "/images/uom.png" // Add your school logo
+            },
+            {
+                id: 3,
                 title: "Ethical Hacking",
                 institution: "Cisco Networking Academy",
                 location: "Online Platform - CNA",
@@ -99,7 +79,29 @@ function Education() {
                 description: "Currently pursuing Ethical Hacking certification with focus on penetration testing, vulnerability assessment, and cybersecurity defense strategies.",
                 grade: "Ongoing",
                 logo: "/images/cisco.png" // Add your Cisco Networking Academy logo
-            }
+            },
+            {
+                id: 4,
+                title: "Ordinary Level (O/L)",
+                institution: "Medirigiriya National College",
+                location: "Medirigiriya, Sri Lanka", 
+                period: "2018",
+                description: "Completed Ordinary Level examination with excellent results in Science and Mathematics subjects.",
+                grade: "Results: 7A's & 2B's ",
+                logo: "/images/meda.png" // Add your school logo
+            },
+            {
+                id: 5,
+                title: "Advanced Level (A/L)",
+                institution: "Medirigiriya National College",
+                location: "Medirigiriya, Sri Lanka",
+                period: "2021",
+                description: "Completed Advanced Level in Physical Science stream with Mathematics, Physics, and Chemistry.",
+                grade: "Results: B B C",
+                logo: "/images/meda.png" // Add your school logo
+            },
+            
+            
 
         ],
         Experience: [
