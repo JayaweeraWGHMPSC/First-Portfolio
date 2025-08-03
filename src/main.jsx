@@ -11,17 +11,24 @@ import Contact from './Component/Contact.jsx'
 import Footer from './Component/Footer.jsx'
 import Project from './Component/Project.jsx'
 
+console.log('Main.jsx is loading...')
+const rootElement = document.getElementById('root')
+console.log('Root element:', rootElement)
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <AnimatedBackground />
-    <Navbar />
-    <About />
-    <Education />
-    <Services />
-    <Project />
-    <Skills />
-    <Contact />
-    <Footer />
-  </StrictMode>,
-)
+if (rootElement) {
+  createRoot(rootElement).render(
+    <StrictMode>
+      <AnimatedBackground />
+      <Navbar />
+      <About />
+      <Education />
+      <Services />
+      <Project />
+      <Skills />
+      <Contact />
+      <Footer />
+    </StrictMode>,
+  )
+} else {
+  console.error('Root element not found!')
+}
