@@ -135,6 +135,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
 
         <div className="about_right">
           <div className="profile-image slide-in-right">
+            <img src="/profile_picture.jpg" alt="Pathum Profile Picture" />
           </div>
         </div>
       </div>
