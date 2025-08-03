@@ -94,7 +94,7 @@ const Navbar = () => {
           </li>
           <li>
             <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>
-              Contact
+              Contact<span className="contact-me-text"> Me</span>
             </a>
           </li>
         </ul>
