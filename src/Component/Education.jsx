@@ -164,17 +164,17 @@ function Education() {
             },
             {
                 id: 3,
+                title: "JavaScript Certification",
+                institution: "HackerRank",
+                description: "Successfully completed the JavaScript (Basic) certification on HackerRank. Demonstrated proficiency in JavaScript fundamentals including syntax, data types, functions, arrays, objects, control structures, and basic programming concepts. Achieved certification through rigorous coding assessments and problem-solving challenges.",
+                certificateImage: "/images/javascript-.png" // Add certificate image
+            },
+            {
+                id: 4,
                 title: "Introduction to Cybersecurity",
                 institution: "Cisco Networking Academy",
                 description: "Completed introductory cybersecurity course covering fundamental security concepts, threat detection, network security principles, and basic ethical hacking techniques. Gained understanding of cybersecurity frameworks and defense strategies.",
                 certificateImage: "/images/cisco.jpg" // Add certificate image
-            },
-            {
-                id: 4,
-                title: "JavaScript (Basic) Certification",
-                institution: "HackerRank",
-                description: "Successfully completed the JavaScript (Basic) certification on HackerRank. Demonstrated proficiency in JavaScript fundamentals including syntax, data types, functions, arrays, objects, control structures, and basic programming concepts. Achieved certification through rigorous coding assessments and problem-solving challenges.",
-                certificateImage: "/images/javascript-.png" // Add certificate image
             },
             {
                 id: 5,
