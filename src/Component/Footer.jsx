@@ -1,5 +1,5 @@
 import "./Footer.css";
-import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin, FaUser, FaMapMarkerAlt, FaEnvelope, FaPhone, FaExternalLinkAlt } from "react-icons/fa";
+import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin, FaUser, FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaExternalLinkAlt } from "react-icons/fa";
 import { SiGmail, SiFiverr } from "react-icons/si";
 import { useState } from "react";
 
@@ -156,7 +156,7 @@ function Footer() {
                                 </a>
                             </div>
                             <div className="contact-item">
-                                <FaPhone className="contact-icon" />
+                                <FaPhoneAlt className="contact-icon" />
                                 <a href="tel:+94750798576" className="contact-link">
                                     +94 75 079 8576
                                 </a>
