@@ -6,6 +6,8 @@ function Education() {
     const [activeCategory, setActiveCategory] = useState('Education');
     const [isLoading, setIsLoading] = useState(false);
     const [expandedCards, setExpandedCards] = useState(new Set());
+    const [showAllCertificates, setShowAllCertificates] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     
     // Animation states
     const [isVisible, setIsVisible] = useState(false);
@@ -47,6 +49,18 @@ function Education() {
             }
         };
     }, [isVisible]);
+
+    // Handle mobile detection
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const educationData = {
         Education: [
@@ -150,25 +164,32 @@ function Education() {
             },
             {
                 id: 3,
+                title: "JavaScript Certification",
+                institution: "HackerRank",
+                description: "Successfully completed the JavaScript (Basic) certification on HackerRank. Demonstrated proficiency in JavaScript fundamentals including syntax, data types, functions, arrays, objects, control structures, and basic programming concepts. Achieved certification through rigorous coding assessments and problem-solving challenges.",
+                certificateImage: "/images/javascript-.png" // Add certificate image
+            },
+            {
+                id: 4,
                 title: "Introduction to Cybersecurity",
                 institution: "Cisco Networking Academy",
                 description: "Completed introductory cybersecurity course covering fundamental security concepts, threat detection, network security principles, and basic ethical hacking techniques. Gained understanding of cybersecurity frameworks and defense strategies.",
                 certificateImage: "/images/cisco.jpg" // Add certificate image
             },
             {
-                id: 4,
+                id: 5,
                 title: "CodeRush Programming Competition",
                 institution: "INTEC - Faculty of IT, University of Moratuwa",
                 description: "Participated and achieved recognition in CodeRush programming competition organized by INTEC. Demonstrated problem-solving skills and programming proficiency in competitive programming challenges using various programming languages.",
                 certificateImage: "/images/code2023.jpeg" // Add certificate image
             },
             {
-                id: 5,
+                id: 6,
                 title: "AlgoXplore 1.0 - Hackathon & CTF Challenge",
                 institution: "Hackathon Hub - NSBM Green University",
                 description: "Participated in AlgoXplore 1.0, a comprehensive Hackathon and Capture the Flag (CTF) challenge. Demonstrated skills in algorithm design, cybersecurity, problem-solving, and innovative solution development in a competitive environment.",
                 certificateImage: "/images/x.jpeg" // Add certificate image
-            }
+            },
         ]
     };
 
@@ -180,6 +201,7 @@ function Education() {
         setIsLoading(true);
         setExpandedCards(new Set()); // Reset expanded cards when changing category
         setShowCards(false); // Hide cards before switching
+        setShowAllCertificates(false); // Reset certificate view when changing category
         
         // Add a slight delay for animation effect
         setTimeout(() => {
@@ -198,6 +220,26 @@ function Education() {
             newExpandedCards.add(cardId);
         }
         setExpandedCards(newExpandedCards);
+    };
+
+    const handleViewMoreCertificates = () => {
+        setShowAllCertificates(true);
+    };
+
+    const handleHideCertificates = () => {
+        setShowAllCertificates(false);
+    };
+
+    // Function to get certificates to display based on mobile view
+    const getCertificatesToShow = () => {
+        if (activeCategory !== 'Certificate') return educationData[activeCategory];
+        
+        const certificates = educationData.Certificate;
+        
+        if (isMobile && !showAllCertificates) {
+            return certificates.slice(0, 2);
+        }
+        return certificates;
     };
 
     return (
@@ -227,7 +269,7 @@ function Education() {
                         <div className="spinner"></div>
                     </div>
                 ) : (
-                    educationData[activeCategory].map((item) => (
+                    getCertificatesToShow().map((item) => (
                         <div key={`${activeCategory}-${item.id}`} className={`education-card ${activeCategory === 'Certificate' ? 'certificate-card' : ''} fade-in-card`}>
                             {activeCategory === 'Certificate' ? (
                             // Certificate Card Layout
@@ -280,6 +322,27 @@ function Education() {
                 ))
                 )}
             </div>
+
+            {/* View More/Hide Buttons for Certificates in Mobile */}
+            {!isLoading && activeCategory === 'Certificate' && isMobile && (
+                <div className="certificate-mobile-controls">
+                    {!showAllCertificates ? (
+                        <button 
+                            className="view-more-btn certificate-btn"
+                            onClick={handleViewMoreCertificates}
+                        >
+                            View More Certificates
+                        </button>
+                    ) : (
+                        <button 
+                            className="hide-btn certificate-btn"
+                            onClick={handleHideCertificates}
+                        >
+                            Hide Certificates
+                        </button>
+                    )}
+                </div>
+            )}
 
             {/* LinkedIn Button for Certificate Section */}
             {!isLoading && activeCategory === 'Certificate' && (

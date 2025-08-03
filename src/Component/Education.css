@@ -500,6 +500,38 @@
     transform: translateX(5px);
 }
 
+/* Certificate Mobile Controls */
+.certificate-mobile-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.certificate-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #00ffff 0%, #00e5ff 100%);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+}
+
+.view-more-btn:hover, .hide-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+    background: linear-gradient(135deg, #00e5ff 0%, #00c8de 100%);
+}
+
+.view-more-btn:active, .hide-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 255, 255, 0.3);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .education-container {
