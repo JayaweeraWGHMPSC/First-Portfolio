@@ -397,7 +397,8 @@ body {
         gap: 2rem;
         text-align: center;
     }
-    
+    /* left section styles */
+
     .about_left {
         align-items: center;
         max-width: 100%;
