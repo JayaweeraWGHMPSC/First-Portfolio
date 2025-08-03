@@ -171,25 +171,25 @@ function Education() {
             },
             {
                 id: 4,
+                title: "JavaScript (Basic) Certification",
+                institution: "HackerRank",
+                description: "Successfully completed the JavaScript (Basic) certification on HackerRank. Demonstrated proficiency in JavaScript fundamentals including syntax, data types, functions, arrays, objects, control structures, and basic programming concepts. Achieved certification through rigorous coding assessments and problem-solving challenges.",
+                certificateImage: "/images/javascript-.png" // Add certificate image
+            },
+            {
+                id: 5,
                 title: "CodeRush Programming Competition",
                 institution: "INTEC - Faculty of IT, University of Moratuwa",
                 description: "Participated and achieved recognition in CodeRush programming competition organized by INTEC. Demonstrated problem-solving skills and programming proficiency in competitive programming challenges using various programming languages.",
                 certificateImage: "/images/code2023.jpeg" // Add certificate image
             },
             {
-                id: 5,
+                id: 6,
                 title: "AlgoXplore 1.0 - Hackathon & CTF Challenge",
                 institution: "Hackathon Hub - NSBM Green University",
                 description: "Participated in AlgoXplore 1.0, a comprehensive Hackathon and Capture the Flag (CTF) challenge. Demonstrated skills in algorithm design, cybersecurity, problem-solving, and innovative solution development in a competitive environment.",
                 certificateImage: "/images/x.jpeg" // Add certificate image
             },
-            {
-                id: 6,
-                title: "JavaScript (Basic) Certification",
-                institution: "HackerRank",
-                description: "Successfully completed the JavaScript (Basic) certification on HackerRank. Demonstrated proficiency in JavaScript fundamentals including syntax, data types, functions, arrays, objects, control structures, and basic programming concepts. Achieved certification through rigorous coding assessments and problem-solving challenges.",
-                certificateImage: "/images/javascript-.png" // Add certificate image
-            }
         ]
     };
 
