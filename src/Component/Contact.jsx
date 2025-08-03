@@ -21,6 +21,7 @@ function Contact() {
   const [showPopup, setShowPopup] = useState(false)
   const [popupMessage, setPopupMessage] = useState("")
   const [popupType, setPopupType] = useState("info") // "success", "error", "info"
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // Animation states for scroll-triggered animations
   const [isVisible, setIsVisible] = useState(false)
@@ -131,6 +132,7 @@ function Contact() {
 
   const sendEmail = async (e) => {
     e.preventDefault()
+    setIsSubmitting(true)
 
     try {
       const result = await emailjs.sendForm("service_wf5jpmj", "template_adah41g", form.current, "aXIH89B0VxmHZEaO8")
@@ -153,15 +155,22 @@ function Contact() {
       setPopupMessage("Failed to send message. Please try again later.")
       setPopupType("error")
       setShowPopup(true)
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     
-    if (validateForm()) {
+    if (!isSubmitting && validateForm()) {
       await sendEmail(e)
     }
+  }
+
+  const closePopup = () => {
+    setShowPopup(false)
+    setPopupMessage("")
   }
 
   return (
@@ -173,8 +182,11 @@ function Contact() {
 
       {/* Popup Message */}
       {showPopup && (
-        <div className="popup-overlay">
-          <div className={`popup-message ${popupType}`}>
+        <div className="popup-overlay" onClick={closePopup}>
+          <div className={`popup-message ${popupType}`} onClick={(e) => e.stopPropagation()}>
+            <button className="popup-close-btn" onClick={closePopup}>
+              ×
+            </button>
             <p>{popupMessage}</p>
           </div>
         </div>
@@ -252,8 +264,8 @@ function Contact() {
           </div>
         </div>
 
-        <button type="submit" className="submit-button animate-form-item">
-          Send Message
+        <button type="submit" className="submit-button animate-form-item" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send Message"}
         </button>
       </form>
 
@@ -280,6 +292,32 @@ function Contact() {
           text-align: center;
           border: 1px solid rgba(255, 255, 255, 0.2);
           animation: popupSlideIn 0.3s ease-out;
+          position: relative;
+        }
+
+        .popup-close-btn {
+          position: absolute;
+          top: 8px;
+          right: 12px;
+          background: none;
+          border: none;
+          font-size: 24px;
+          font-weight: bold;
+          color: #000000;
+          cursor: pointer;
+          padding: 0;
+          width: 30px;
+          height: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          transition: all 0.2s ease;
+        }
+
+        .popup-close-btn:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+          transform: scale(1.1);
         }
 
         .popup-message.success {
@@ -320,6 +358,18 @@ function Contact() {
         .error-border {
           border-color: #ff4444 !important;
           box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+        }
+
+        .submit-button:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none !important;
+          box-shadow: none !important;
+        }
+
+        .submit-button:disabled:hover {
+          transform: none !important;
+          box-shadow: none !important;
         }
       `}</style>
     </div>
