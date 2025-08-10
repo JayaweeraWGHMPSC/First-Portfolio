@@ -126,8 +126,28 @@
   text-decoration: underline;
 }
 
+/* Active navigation item styling */
+.nav-links li a.active-nav {
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 20px;
+  padding: 8px 16px;
+  text-shadow: 0px 0px 8px #00ffff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+  background: rgba(0, 255, 255, 0.1);
+}
+
+/* Special handling for contact button when active */
+.nav-links li a.active-nav.contact-btn {
+  background: #00ffff;
+  color: rgb(0, 0, 0);
+  border: 2px solid #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
 /* Contact button styling for desktop */
-.nav-links li:last-child a {
+.nav-links li:last-child a,
+.nav-links li a.contact-btn {
   background: #00E5FF;
   color: rgb(0, 0, 0);
   padding: 10px 20px;
@@ -137,7 +157,8 @@
   transition: all 0.3s ease;
 }
 
-.nav-links li:last-child a:hover {
+.nav-links li:last-child a:hover,
+.nav-links li a.contact-btn:hover {
   background: #00ffff;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
@@ -184,6 +205,25 @@
     opacity: 1;
   }
 
+  /* Active navigation item styling for tablet */
+  .nav-links li a.active-nav {
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    border-radius: 18px;
+    padding: 6px 14px;
+    text-shadow: 0px 0px 8px #00ffff;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+    background: rgba(0, 255, 255, 0.1);
+  }
+
+  /* Special handling for contact button when active on tablet */
+  .nav-links li a.active-nav.contact-btn {
+    background: #00ffff;
+    color: rgb(0, 0, 0);
+    border: 2px solid #00ffff;
+    box-shadow: 0 0 18px rgba(0, 255, 255, 0.5);
+  }
+
   /* Animation only on initial load for tablet */
   .navbar.initial-load .nav-links li a {
     opacity: 0;
@@ -215,7 +255,8 @@
   }
 
   /* Contact button styling for tablet */
-  .nav-links li:last-child a {
+  .nav-links li:last-child a,
+  .nav-links li a.contact-btn {
     background: linear-gradient(135deg, #00ffff, #0080ff);
     color: white;
     padding: 8px 16px;
@@ -226,7 +267,8 @@
     box-shadow: 0 3px 12px rgba(0, 255, 255, 0.3);
   }
 
-  .nav-links li:last-child a:hover {
+  .nav-links li:last-child a:hover,
+  .nav-links li a.contact-btn:hover {
     background: linear-gradient(135deg, #0080ff, #00ffff);
     transform: translateY(-2px);
     box-shadow: 0 5px 18px rgba(0, 255, 255, 0.5);
@@ -328,6 +370,21 @@
   .nav-links.active li:nth-child(4) a { animation-delay: 0.4s; }
   .nav-links.active li:nth-child(5) a { animation-delay: 0.5s; }
   .nav-links.active li:nth-child(6) a { animation-delay: 0.6s; }
+
+  /* Active navigation item styling for mobile */
+  .nav-links li a.active-nav {
+    color: #00ffff !important;
+    border: 1px solid #00ffff !important;
+    border-radius: 15px !important;
+    padding: 5px 10px !important;
+    text-shadow: 0px 0px 8px #00ffff !important;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3) !important;
+    background: rgba(0, 255, 255, 0.1) !important;
+  }
+
+  .nav-links li a.active-nav:hover {
+    text-decoration: none !important;
+  }
 
   /* Override contact button styling for mobile - make it a regular link */
   .nav-links li:last-child a {
