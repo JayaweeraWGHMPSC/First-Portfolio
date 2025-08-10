@@ -4,6 +4,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [activeSection, setActiveSection] = useState('home');
   const menuRef = useRef(null);
 
   const toggleMenu = () => {
@@ -42,9 +43,32 @@ const Navbar = () => {
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
+    const sections = ['home', 'education', 'services', 'websites', 'skills', 'contact'];
+    
     // After first scroll, it's no longer initial load
     if (isInitialLoad && scrollPosition > 0) {
       setIsInitialLoad(false);
+    }
+
+    // Determine active section based on scroll position
+    if (scrollPosition < 100) {
+      setActiveSection('home');
+      return;
+    }
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const elementTop = rect.top + scrollPosition;
+        const elementBottom = elementTop + element.offsetHeight;
+        
+        // Check if the section is in view (with some offset for navbar height)
+        if (scrollPosition + 100 >= elementTop && scrollPosition + 100 < elementBottom) {
+          setActiveSection(section);
+          break;
+        }
+      }
     }
   };
 
@@ -68,32 +92,56 @@ const Navbar = () => {
       <div className="navbar_list">
         <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <li>
-            <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')}>
+            <a 
+              href="#home" 
+              onClick={(e) => handleSmoothScroll(e, 'home')}
+              className={activeSection === 'home' ? 'active-nav' : ''}
+            >
               Home
             </a>
           </li>
           <li>
-            <a href="#education" onClick={(e) => handleSmoothScroll(e, 'education')}>
+            <a 
+              href="#education" 
+              onClick={(e) => handleSmoothScroll(e, 'education')}
+              className={activeSection === 'education' ? 'active-nav' : ''}
+            >
               Education
             </a>
           </li>
           <li>
-            <a href="#services" onClick={(e) => handleSmoothScroll(e, 'services')}>
+            <a 
+              href="#services" 
+              onClick={(e) => handleSmoothScroll(e, 'services')}
+              className={activeSection === 'services' ? 'active-nav' : ''}
+            >
               Services
             </a>
           </li>
           <li>
-            <a href="#websites" onClick={(e) => handleSmoothScroll(e, 'websites')}>
+            <a 
+              href="#websites" 
+              onClick={(e) => handleSmoothScroll(e, 'websites')}
+              className={activeSection === 'websites' ? 'active-nav' : ''}
+            >
               Projects
             </a>
           </li>
           <li>
-            <a href="#skills" onClick={(e) => handleSmoothScroll(e, 'skills')}>
+            <a 
+              href="#skills" 
+              onClick={(e) => handleSmoothScroll(e, 'skills')}
+              className={activeSection === 'skills' ? 'active-nav' : ''}
+            >
               Skills
             </a>
           </li>
           <li>
-            <a href="#contact" onClick={(e) => handleSmoothScroll(e, 'contact')}>
+            <a 
+              href="#contact" 
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
+              className={activeSection === 'contact' ? 'active-nav contact-btn' : 'contact-btn'}
+            >
               Contact<span className="contact-me-text"> Me</span>
             </a>
           </li>
