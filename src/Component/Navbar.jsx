@@ -85,7 +85,7 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar${isInitialLoad ? ' initial-load' : ''}`} ref={menuRef}>
-      <div className="logo">Port<span className="logoName">folio</span></div>
+      <div className="logo">Pathum<span className="logoName">SC</span></div>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
       </div>

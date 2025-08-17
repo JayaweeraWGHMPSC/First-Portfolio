@@ -12,7 +12,7 @@ function About() {
   const [showScrollTop, setShowScrollTop] = useState(false)
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer", "Cyber Security Enthusiast"];
+const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer", "Cyber Security Enthusiast","Desktop App Developer"];
   const typingRef = useRef(null)
 
   useEffect(() => {
