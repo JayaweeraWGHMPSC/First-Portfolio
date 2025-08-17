@@ -48,8 +48,8 @@ function Skills() {
   }, [isVisible]);
 
   const skillsData = {
-    Frontend: ['HTML5', 'CSS3', 'JavaScript','Reactjs','Nextjs','Tailwind CSS', 'Bootstrap','Material UI'],
-    Backend: ['Nodejs','Expressjs', 'Python', 'PHP', 'Java', 'Ballerina'],
+    Frontend: ['HTML5', 'CSS3', 'JavaScript','Reactjs','Nextjs','Tailwind CSS', 'Bootstrap','Electronjs'],
+    Backend: ['Nodejs','Ballerina','.NET','Expressjs', 'Python',  'Java', 'PHP'],
     Database: ['MySQL', 'MongoDB', 'MSSQL','Firebase'],
     Programming: ['C', 'Java', 'Python', 'JavaScript'],
     Tools: ['Git', 'Figma', 'Blender','Jupyter', 'Photoshop','ChatGPT','Canva','Gimp'],

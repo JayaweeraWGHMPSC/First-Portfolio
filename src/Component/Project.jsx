@@ -11,7 +11,7 @@ const Project = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
-  
+
   const containerRef = useRef(null);
 
   // Intersection Observer for scroll-triggered animations
@@ -21,7 +21,7 @@ const Project = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !isVisible) {
             setIsVisible(true);
-            
+
             // Sequence the animations
             setTimeout(() => setShowTitle(true), 200);
             setTimeout(() => setShowProjects(true), 800);
@@ -51,10 +51,10 @@ const Project = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
-    
+
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -88,6 +88,19 @@ const Project = () => {
     },
     {
       id: 3,
+      name: "SecureZip",
+      duration: "1 months",
+      workType: "Individual",
+      status: "Completed",
+      role: "Full Stack Developer",
+      contribution: "Designed and developed both the AES-256 encryption/decryption logic and a modern desktop UI.",
+      image: "/images/securezip.jpg", // Replace with your actual image path
+      shortDescription: "A secure file encryption and compression desktop application ensuring complete offline data privacy using AES-256.",
+      fullDescription: "SecureZip is a desktop application designed to provide strong encryption and compression for text, files, and folders, ensuring data security without requiring any internet connection or backend storage. The application uses the AES-256 encryption algorithm as the core method, giving users military-grade security for their sensitive data.\n\nKey features include password-based AES-256 encryption, file integrity verification using hash checks, and optional QR code generation for secure key sharing. For folders, SecureZip first compresses the contents into a single ZIP archive before encrypting, making the process efficient and secure. The application guarantees zero quality loss for media files like images, videos, and audio during encryption and decryption.\n\nThe system was developed using Electron.js for the cross-platform desktop interface, JavaScript for frontend interactions, and .NET for implementing high-performance AES-256 encryption. This hybrid approach ensures a responsive UI and robust encryption performance, making SecureZip suitable for both personal and professional use.",
+      technologies: ["Electron.js", "JavaScript", ".NET", "AES-256"]
+    },
+    {
+      id: 4,
       name: "My Portfolio Site",
       duration: "4 month",
       workType: "Individual",
@@ -97,10 +110,10 @@ const Project = () => {
       image: "/images/portfolio.png", // Replace with your actual image path
       shortDescription: "A modern, responsive personal portfolio website showcasing my projects and skills.",
       fullDescription: "Developed a comprehensive personal portfolio website to showcase my development skills, projects, and professional experience. The site features a modern, responsive design with interactive components including project showcases, skills visualization, service offerings, and contact information. Built with a focus on user experience and mobile-first design principles.\n\nThe portfolio includes several key sections: an engaging hero section with personal introduction, detailed project cards with status indicators and technology badges, an interactive services carousel with work type classifications, a comprehensive skills section with visual representations, and a contact form with social media integration. Each section is designed to provide visitors with a clear understanding of my capabilities and experience.\n\nBuilt using React for dynamic functionality, modern CSS for responsive styling, and various interactive components for enhanced user engagement. The site features smooth animations, mobile-optimized layouts, project filtering capabilities, and popup modals for detailed project information. The clean, professional design ensures optimal viewing across all devices while maintaining fast loading times and accessibility standards.",
-      technologies: ["React", "CSS","Bootstrap", "JavaScript", "EmailJS"]
+      technologies: ["React", "CSS", "Bootstrap", "JavaScript", "EmailJS"]
     },
     {
-      id: 4,
+      id: 5,
       name: "Solo Runner Website",
       duration: "4 month",
       workType: "Individual",
@@ -113,7 +126,7 @@ const Project = () => {
       technologies: ["HTML", "CSS", "JavaScript", "Firebase"]
     },
     {
-      id: 5,
+      id: 6,
       name: "Solo Runner IoT Project",
       duration: "8 month",
       workType: "Group",
@@ -149,40 +162,40 @@ const Project = () => {
       <h2 className={`project-title ${showTitle ? 'animate-title' : 'hidden-title'}`}>
         My <span className="highlight">Projects</span>
       </h2>
-      
+
       <div className={`projects-grid ${showProjects ? 'animate-projects' : 'hidden-projects'}`}>
         {projectsToShow.map((project) => (
           <div key={project.id} className="project-card animate-project-card">
             <div className="project-image-container">
-              <img 
-                src={project.image} 
+              <img
+                src={project.image}
                 alt={project.name}
                 className="project-image"
                 onError={(e) => {
                   e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNDQ0Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNiIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIE5vdCBGb3VuZDwvdGV4dD48L3N2Zz4=';
                 }}
-                 onClick={() => openPopup(project)}
+                onClick={() => openPopup(project)}
               />
               <div className={`project-status-badge ${project.status.toLowerCase()}`}>
                 {project.status}
               </div>
             </div>
-            
+
             <div className="project-content">
               <div className="project-header">
                 <h3 className="project-name">{project.name}</h3>
               </div>
-              
+
               <p className="project-description">
                 {project.shortDescription}{' '}
-                <span 
+                <span
                   className="see-more-link"
                   onClick={() => openPopup(project)}
                 >
                   See more ...
                 </span>
               </p>
-              
+
               <div className="project-tech">
                 <div className="tech-section">
                   <div className="tech-tags">
@@ -200,7 +213,7 @@ const Project = () => {
       {/* Mobile Toggle Button */}
       {isMobile && (
         <div className="mobile-toggle-container">
-          <button 
+          <button
             className="mobile-toggle-btn"
             onClick={toggleProjectsView}
           >
@@ -219,7 +232,7 @@ const Project = () => {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-            
+
             <div className="popup-header">
               <h2>{selectedProject.name}</h2>
               <div className="popup-header-badges">
@@ -228,10 +241,10 @@ const Project = () => {
                 </span>
               </div>
             </div>
-            
+
             <div className="popup-image-container">
-              <img 
-                src={selectedProject.image} 
+              <img
+                src={selectedProject.image}
                 alt={selectedProject.name}
                 className="popup-project-image"
               />
@@ -239,28 +252,28 @@ const Project = () => {
                 {selectedProject.status}
               </div>
             </div>
-            
+
             <div className="popup-body">
               <h3>Project Details</h3>
               <p>{selectedProject.fullDescription}</p>
-              
+
               <div className="popup-info-grid">
                 <div className="popup-info-section">
                   <h4>Duration</h4>
                   <p>{selectedProject.duration}</p>
                 </div>
-                
+
                 <div className="popup-info-section">
                   <h4>Category</h4>
                   <p>{selectedProject.role}</p>
                 </div>
-                
+
                 <div className="popup-info-section">
                   <h4>Contribution</h4>
                   <p>{selectedProject.contribution}</p>
                 </div>
               </div>
-              
+
               <div className="popup-tech">
                 <div className="popup-tech-section">
                   <h4>Technologies</h4>
