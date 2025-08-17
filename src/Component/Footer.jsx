@@ -37,16 +37,16 @@ function Footer() {
         },
         {
             id: 3,
-            name: "My Portfolio Site",
-            duration: "4 month",
+            name: "SecureZip",
+            duration: "1 months",
             workType: "Individual",
             status: "Completed",
-            role: "Frontend Project",
-            contribution: "Frontend Developer",
-            image: "/images/portfolio.png",
-            shortDescription: "A modern, responsive personal portfolio website showcasing my projects and skills.",
-            fullDescription: "Developed a comprehensive personal portfolio website to showcase my development skills, projects, and professional experience. The site features a modern, responsive design with interactive components including project showcases, skills visualization, service offerings, and contact information. Built with a focus on user experience and mobile-first design principles.\n\nThe portfolio includes several key sections: an engaging hero section with personal introduction, detailed project cards with status indicators and technology badges, an interactive services carousel with work type classifications, a comprehensive skills section with visual representations, and a contact form with social media integration. Each section is designed to provide visitors with a clear understanding of my capabilities and experience.\n\nBuilt using React for dynamic functionality, modern CSS for responsive styling, and various interactive components for enhanced user engagement. The site features smooth animations, mobile-optimized layouts, project filtering capabilities, and popup modals for detailed project information. The clean, professional design ensures optimal viewing across all devices while maintaining fast loading times and accessibility standards.",
-            technologies: ["React", "CSS","Bootstrap", "JavaScript", "EmailJS"]
+            role: "Full Stack Developer",
+            contribution: "Designed and developed both the AES-256 encryption/decryption logic and a modern desktop UI.",
+            image: "/images/securezip.jpg", // Replace with your actual image path
+            shortDescription: "A secure file encryption and compression desktop application ensuring complete offline data privacy using AES-256.",
+            fullDescription: "SecureZip is a desktop application designed to provide strong encryption and compression for text, files, and folders, ensuring data security without requiring any internet connection or backend storage. The application uses the AES-256 encryption algorithm as the core method, giving users military-grade security for their sensitive data.\n\nKey features include password-based AES-256 encryption, file integrity verification using hash checks, and optional QR code generation for secure key sharing. For folders, SecureZip first compresses the contents into a single ZIP archive before encrypting, making the process efficient and secure. The application guarantees zero quality loss for media files like images, videos, and audio during encryption and decryption.\n\nThe system was developed using Electron.js for the cross-platform desktop interface, JavaScript for frontend interactions, and .NET for implementing high-performance AES-256 encryption. This hybrid approach ensures a responsive UI and robust encryption performance, making SecureZip suitable for both personal and professional use.",
+            technologies: ["Electron.js", "JavaScript", ".NET", "AES-256"]
         },
         {
             id: 4,
@@ -80,7 +80,7 @@ function Footer() {
 
     const handleSmoothScroll = (e, targetId) => {
         e.preventDefault();
-        
+
         // Handle home section - scroll to top
         if (targetId === 'home') {
             window.scrollTo({
@@ -172,7 +172,7 @@ function Footer() {
                         <ul className="project-list">
                             {projects.map((project) => (
                                 <li key={project.id} className="project-item">
-                                    <button 
+                                    <button
                                         onClick={() => handleProjectClick(project)}
                                         className="project-link"
                                     >
@@ -225,7 +225,7 @@ function Footer() {
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                         </button>
-                        
+
                         <div className="popup-header">
                             <h2>{selectedProject.name}</h2>
                             <div className="popup-header-badges">
@@ -234,10 +234,10 @@ function Footer() {
                                 </span>
                             </div>
                         </div>
-                        
+
                         <div className="popup-image-container">
-                            <img 
-                                src={selectedProject.image} 
+                            <img
+                                src={selectedProject.image}
                                 alt={selectedProject.name}
                                 className="popup-project-image"
                                 onError={(e) => {
@@ -248,28 +248,28 @@ function Footer() {
                                 {selectedProject.status}
                             </div>
                         </div>
-                        
+
                         <div className="popup-body">
                             <h3>Project Details</h3>
                             <p>{selectedProject.fullDescription}</p>
-                            
+
                             <div className="popup-info-grid">
                                 <div className="popup-info-section">
                                     <h4>Duration</h4>
                                     <p>{selectedProject.duration}</p>
                                 </div>
-                                
+
                                 <div className="popup-info-section">
                                     <h4>Category</h4>
                                     <p>{selectedProject.role}</p>
                                 </div>
-                                
+
                                 <div className="popup-info-section">
                                     <h4>Contribution</h4>
                                     <p>{selectedProject.contribution}</p>
                                 </div>
                             </div>
-                            
+
                             <div className="popup-tech">
                                 <div className="popup-tech-section">
                                     <h4>Technologies</h4>
