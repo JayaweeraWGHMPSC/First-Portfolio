@@ -3,11 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/mylogo.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <!-- Apple Touch Icon for iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pathum Portfolio</title>
+    <meta name="description" content="Official portfolio of Pathum SC Jayaweera, a passionate web developer specializing in HTML, CSS, JavaScript, React, and modern web technologies.">
+    <meta name="keywords" content="Pathum SC Jayaweera, web developer, portfolio, React, Sri Lanka, frontend developer, Pathum SC Jayaweera portfolio, Pathum Sri Chathuranga Jayaweera">
+    <meta name="author" content="Pathum SC Jayaweera">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pathumscjayaweera.me/" />
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Pathum SC Jayaweera | Portfolio">
+    <meta property="og:description" content="Explore the projects and skills of Pathum SC Jayaweera.">
+    <meta property="og:image" content="https://pathumscjayaweera.me/profile_picture.jpg">
+    <meta property="og:url" content="https://pathumscjayaweera.me">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pathum SC Jayaweera | Portfolio">
+    <meta name="twitter:description" content="Explore the projects and skills of Pathum SC Jayaweera.">
+    <meta name="twitter:image" content="https://pathumscjayaweera.me/profile_picture.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Pathum SC Jayaweera",
+      "url": "https://pathumscjayaweera.me",
+      "image": "https://pathumscjayaweera.me/profile_picture.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/pathumscj",
+        "https://github.com/pathumscj",
+        "https://www.facebook.com/profile.php?id=100073889082993"
+      ],
+      "jobTitle": "Web Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics (replace G-XXXXXXXXXX with your real ID) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <title>Pathum SC Jayaweera | Portfolio</title>
+    <link rel="stylesheet" href="/src/index.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <main>
+      <div id="root"></div>
+    </main>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
