@@ -119,7 +119,7 @@ const jobs = ["Full-Stack Developer", "3ʳᵈ Year Undergraduate", "Freelancer",
           </div>
           <div className="al_contact_way slide-in-left">
             <div className="al_hire_me">
-              <a href="/cv.pdf" style={{ textDecoration: "none" }} download><button style={hireMeStyle}>Download Resume</button></a>
+              <a href="/Pathum Jayaweera- SOFTWARE ENGINEERING INTERN.pdf" style={{ textDecoration: "none" }} download><button style={hireMeStyle}>Download Resume</button></a>
             </div>
             <div className="al_contact">
               <button
