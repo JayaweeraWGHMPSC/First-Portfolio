@@ -71,7 +71,7 @@ function Education() {
                 location: "Moratuwa, Sri Lanka",
                 period: "Present",
                 description: "Currently pursuing a Bachelor's degree in Information Technology with focus on Software Engineering and Computer Networks.",
-                grade: "Current GPA: 3.51/4.0",
+                grade: "Current GPA: 3.55/4.0",
                 logo: "/images/uom.png" // Add your University of Moratuwa logo
             },
             {
@@ -96,22 +96,22 @@ function Education() {
             },
             {
                 id: 4,
-                title: "Ordinary Level (O/L)",
-                institution: "Medirigiriya National College",
-                location: "Medirigiriya, Sri Lanka", 
-                period: "2018",
-                description: "Completed Ordinary Level examination with excellent results in Science and Mathematics subjects.",
-                grade: "Results: 7A's & 2B's ",
-                logo: "/images/meda.png" // Add your school logo
-            },
-            {
-                id: 5,
                 title: "Advanced Level (A/L)",
                 institution: "Medirigiriya National College",
                 location: "Medirigiriya, Sri Lanka",
                 period: "2021",
                 description: "Completed Advanced Level in Physical Science stream with Mathematics, Physics, and Chemistry.",
                 grade: "Results: B B C",
+                logo: "/images/meda.png" // Add your school logo
+            },
+            {
+                id: 5,
+                title: "Ordinary Level (O/L)",
+                institution: "Medirigiriya National College",
+                location: "Medirigiriya, Sri Lanka", 
+                period: "2018",
+                description: "Completed Ordinary Level examination with excellent results in Science and Mathematics subjects.",
+                grade: "Results: 7A's & 2B's ",
                 logo: "/images/meda.png" // Add your school logo
             },
             

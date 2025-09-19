@@ -357,6 +357,93 @@
   position: relative;
 }
 
+/* Mobile popup adjustments */
+@media (max-width: 768px) {
+  .popup-content {
+    width: 85% !important;
+    max-width: 300px !important;
+    margin: 20px 0;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  
+  .popup-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .popup-image-container {
+    height: 180px;
+    margin-bottom: 15px;
+  }
+  
+  .popup-project-image {
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .popup-body {
+    padding: 15px 0;
+  }
+  
+  .popup-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .popup-body p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 15px;
+  }
+  
+  .popup-info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 15px 0;
+  }
+  
+  .popup-info-section h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  
+  .popup-info-section p {
+    font-size: 0.85rem;
+  }
+  
+  .popup-tech-section h4 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .popup-tech-tags {
+    gap: 6px;
+  }
+  
+  .popup-tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .popup-content {
+    width: 90% !important;
+    max-width: 320px !important;
+    margin: 15px auto;
+  }
+  
+  .popup-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .popup-body p {
+    font-size: 0.85rem;
+  }
+}
+
 .popup-close {
   position: absolute;
   top: 0.5rem;
@@ -674,6 +761,59 @@
   color: black;
   box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
   transform: translateY(-2px);
+}
+
+/* Custom Scrollbar Styles for Theme */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ffff, #06b6d4);
+  border-radius: 10px;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #03e9e9, #00ffff);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+  background: #000000;
+}
+
+/* For Firefox (Modern versions) - Progressive enhancement */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #00ffff #000000;
+  }
+  
+  .popup-content {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 255, 0.7) #000000;
+  }
+}
+
+/* Popup specific scrollbar */
+.popup-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.7);
+  border-radius: 6px;
+}
+
+.popup-content::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
 }
 
 @media (max-width: 480px) {

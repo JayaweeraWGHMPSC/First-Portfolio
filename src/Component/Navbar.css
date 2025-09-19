@@ -350,8 +350,9 @@
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 229, 255, 0.1);
-    width: 25%;
-    padding: 2% 2%;
+    border-radius: 10px;
+    width: 32%;
+    padding: 2% 1% 5% 1%;
     text-align: center;
   }
 
@@ -387,14 +388,28 @@
   }
 
   /* Override contact button styling for mobile - make it a regular link */
-  .nav-links li:last-child a {
+  .nav-links li:last-child a,
+  .nav-links li a.contact-btn {
     background: none !important;
     color: white !important;
     padding: 0 !important;
     border-radius: 0 !important;
     font-weight: normal !important;
     box-shadow: none !important;
+    border: none !important;
     transition: all 0.1s ease-in-out !important;
+  }
+
+  /* When contact is active, it should look like other active nav items */
+  .nav-links li a.active-nav.contact-btn {
+    color: #00ffff !important;
+    border: 1px solid #00ffff !important;
+    border-radius: 15px !important;
+    padding: 5px 10px !important;
+    text-shadow: 0px 0px 8px #00ffff !important;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3) !important;
+    background: rgba(0, 255, 255, 0.1) !important;
+    text-decoration: none !important;
   }
 
   .nav-links li:last-child a:hover {
