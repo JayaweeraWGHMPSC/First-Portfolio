@@ -83,9 +83,18 @@ const Navbar = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Scroll to top when logo is clicked
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar${isInitialLoad ? ' initial-load' : ''}`} ref={menuRef}>
-      <div className="logo">Pathum<span className="logoName">SC</span></div>
+      <a href="#home" style={{ textDecoration: 'none' }} className="logo" onClick={handleLogoClick}>
+        Pathum<span className="logoName">SC</span>
+      </a>
       <div className="menu-icon" onClick={toggleMenu}>
         ☰
       </div>
