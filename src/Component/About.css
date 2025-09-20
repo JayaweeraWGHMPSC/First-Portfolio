@@ -63,6 +63,16 @@ body {
     }
 }
 
+/* Floating animation for profile image */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
 /* Individual element animations with delays */
 .al_name {
     animation-delay: 0.2s;
@@ -317,6 +327,13 @@ body {
     justify-content: center;
 }
 
+/* Add floating animation after slide-in animation class is applied */
+.slide-in-right.profile-image {
+    /* First apply slide-in, then start floating */
+    animation: slideInFromRight 0.8s ease-out forwards, float 3s ease-in-out infinite;
+    animation-delay: 0.8s, 2.5s; /* slide-in delay, then floating delay */
+}
+
 .profile-image img {
     width: 100%;
     height: 100%;
@@ -325,9 +342,14 @@ body {
 }
 
 .profile-image:hover {
-    border: 8px solid #00e5ff;
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.8);
+    border: 7px solid #00e5ff;
+    box-shadow: 0 0 60px rgba(0, 229, 255, 0.7);
     transform: scale(1.02);
+}
+
+/* Pause floating animation on hover for slide-in-right profile images */
+.slide-in-right.profile-image:hover {
+    animation-play-state: running, paused;
 }
 
 /* Large Desktop - PC (1400px and above) */
@@ -849,7 +871,7 @@ body {
         width: 45px;
         height: 45px;
         bottom: 1.5rem;
-        right: 1.5rem;
+        right: 1rem;
         font-size: 1rem;
     }
 }
@@ -859,7 +881,7 @@ body {
         width: 40px;
         height: 40px;
         bottom: 1rem;
-        right: 1rem;
+        right: 0.7rem;
         font-size: 0.9rem;
     }
 }

@@ -142,7 +142,7 @@ const Navbar = () => {
               onClick={(e) => handleSmoothScroll(e, 'contact')}
               className={activeSection === 'contact' ? 'active-nav contact-btn' : 'contact-btn'}
             >
-              Contact<span className="contact-me-text"> Me</span>
+              Get in <span className="contact-me-text"> Touch</span>
             </a>
           </li>
         </ul>
